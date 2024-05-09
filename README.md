@@ -19,8 +19,5 @@ Google Fonts (Poppins font family)
 ## Usage
 Feel free to browse through the portfolio to learn more about Abdelrahman's services, view his projects, and get in touch.
 
-## Contributing
-While contributions to the content of the portfolio itself are not applicable, feedback and suggestions are always welcome! If you have any ideas for improvements or spot any issues, please don't hesitate to open an issue or reach out to Abdelrahman directly.
-
 ## License
 This project is licensed under the MIT License.
