@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* .poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+} */
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    /* from template1_elzero */
+    /* -webkit-box-sizing: border-box; */
+    /* -moz-box-sizing: border-box; */
+    /* box-sizing: border-box; */
+}
+
+/* from template1_elzero */
+/* html{
+    scroll-behavior: smooth;
+} */
+
+/* from template1_elzero */
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+header{
+    background-color: #f0f0f0;
+    width: 100%;
+    position: fixed;
+    /* to make the header while i scroll in the web, it visible and scroll also with me */
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+}
+
+.logo{
+    text-decoration: none;
+    color: #3a6cf4;
+    text-transform: capitalize;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.navbar a{
+    text-decoration: none;
+    /* color: #0000EE; */
+    /* this is the standard link */
+    color: #3a6cf4;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding-left: 30px;
+}
+
+.navbar a:hover{
+    /* color: #551A8B; */
+    /* this is the visited link */
+    color: #601cfc;
+}
+
+section{
+    padding: 100px 200px;
+}
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/images/background-portfolio.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* when i scroll, the image will be fixed and will not scroll with me */
+}
+
+.main h2{
+    color: white;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.main h2 span{
+    display: inline-block;
+    margin-top: 10px;
+    /* span -> not able to edit margin top or bottom */
+    /* inline-block -> edit span to make me able to edit margin top or bottom */
+    color: #4e9eff;
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.main h3{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.main-button{
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    background-color: #3a6cf4;
+    /* border: 3px solid white; */
+    /* background-color: transparent; */
+    /* you can use this also */
+    display: inline-block;
+    padding: 0.9375em 2.187em;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    /* same thing like span */
+    transition: 0.5s;
+}
+
+.main-button:hover{
+    background-color: #0a49f6;
+    transform: scale(1.1);
+}
+
+.social-icons a{
+    color: white;
+    font-size: 1.7em;
+    padding-right: 30px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    color: #3a6cf4;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    width: 17em;
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 0.15);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.5s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    box-shadow: 0 5px 25px rgba(1, 1, 1, 0.25);
+    /* this is my trick */
+}
+
+.icon{
+    color: #3a6cf4;
+    font-size: 5em;
+    text-align: center;
+}
+
+.info{
+    text-align: center;
+}
+
+.info h3{
+    color: #3a6cf4;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.info p{
+    font-size: 0.9em;
+}
+
+.projects{
+    /* background-color: black; */
+    background-color: #000016;
+}
+
+.projects .content{
+    margin-top: 30px;
+}
+
+.project-card{
+    background-color: white;
+    border: 1px solid white;
+    min-height: 14em;
+    width: 17.25em;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px;
+    transition: 0.5s;
+}
+
+.project-card:hover{
+    transform: scale(1.1);
+}
+
+.project-card:hover .project-image{
+    opacity: 0.9;
+}
+
+.project-image img{
+    width: 100%;
+}
+
+.project-info{
+    padding: 1em;
+}
+
+.project-category{
+    font-size: 0.7em;
+    font-weight: 500;
+    color: black;
+}
+
+.project-title{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.more-details{
+    text-decoration: none;
+    color: #3a6cf4;
+}
+
+.more-details:hover{
+    color: #601cfc;
+}
+
+.cards-contact .icon{
+    font-size: 4.5em;
+}
+
+/* .cards-contact .info h3{
+    color: black;
+} */
+
+.cards-contact .info p{
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.footer{
+    /* background-color: black; */
+    background-color: #000016;
+    color: white;
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-title{
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span{
+    color: #3a6cf4;
+}
+
+.footer .social-icons a{
+    font-size: 1.3em;
+    /* padding: 0 12px 0 0; */
+}
+
+/* this is a custom scrollbar */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #3a6cf4;
+    border-radius: 5px;
+}
+
+/* from template1_elzero */
+/* small */
+/* @media (min-width: 768px) {} */
+/* medium */
+/* @media (min-width: 992px) {} */
+/* large */
+/* @media (min-width: 1200px) {} */
+
+/* from chat-GPT */
+/* Mobile Devices (Up to 768px) */
+/* @media only screen and (max-width: 768px){} */
+/* Tablets (768px to 1024px) */
+/* @media only screen and (min-width: 768px) and (max-width: 1024px){} */
+/* Landscape Orientation (for Tablets) */
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){} */
+/* Large Desktops (Above 1200px) */
+/* @media only screen and (min-width: 1200px){} */
