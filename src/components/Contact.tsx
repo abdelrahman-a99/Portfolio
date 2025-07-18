@@ -1,0 +1,230 @@
+'use client';
+
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    title: "Email",
+    details: "abdelrahmanahmedfouad9@gmail.com",
+    href: "mailto:abdelrahmanahmedfouad9@gmail.com"
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    details: "+20 120 035 1201",
+    href: "tel:+201200351201"
+  },
+  {
+    icon: MapPin,
+    title: "Location",
+    details: "Giza, Egypt",
+    // href: "#"
+  }
+];
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: Github,
+    href: "https://github.com/abdelrahman-a99",
+    color: "hover:text-gray-900 dark:hover:text-white"
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/abdelrahman-ahmed-fouad/",
+    color: "hover:text-blue-600"
+  }
+];
+
+export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Simulate form submission
+    toast({
+      title: "Message sent successfully!",
+      description: "Thank you for your message. I'll get back to you soon.",
+    });
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
+  };
+
+  return (
+    <section id="contact" className="min-h-screen py-20 pb-32 bg-gray-900 text-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Ready to collaborate? Let&apos;s discuss your next project or any opportunities 
+            you&apos;d like to explore together.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <div className="space-y-8 animate-slide-in-left">
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-100 mb-6">
+                Let&apos;s Connect
+              </h3>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                I&apos;m always open to discussing new opportunities, interesting projects, 
+                or just having a chat about technology and innovation. Feel free to reach out!
+              </p>
+            </div>
+
+            {/* Contact Details */}
+            <div className="space-y-6">
+              {contactInfo.map((contact) => (
+                <div key={contact.title} className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center">
+                    <contact.icon className="h-6 w-6 text-indigo-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-100">{contact.title}</h4>
+                    <a 
+                      href={contact.href}
+                      className="text-gray-400 hover:text-indigo-400 transition-colors"
+                    >
+                      {contact.details}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="pt-8">
+              <h4 className="font-medium text-gray-100 mb-4">Follow Me</h4>
+              <div className="flex space-x-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${social.color}`}
+                  >
+                    <social.icon className="h-6 w-6" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <Card className="animate-fade-in border-gray-700 bg-gray-800 text-gray-100">
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-gray-100">
+                Send a Message
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell me about your project or opportunity..."
+                    rows={6}
+                    required
+                  />
+                </div>
+
+                <Button 
+                  type="submit" 
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                >
+                  <Send className="mr-2 h-5 w-5" />
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
