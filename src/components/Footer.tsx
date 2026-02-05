@@ -28,7 +28,7 @@ export function Footer() {
               Abdelrahman Ahmed
             </button>
             <p className="text-muted-foreground">
-              Full Stack Developer passionate about creating innovative solutions 
+              Full Stack Developer passionate about creating innovative solutions
               with modern technologies.
             </p>
           </div>
@@ -65,6 +65,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`text-gray-400 transition-all duration-300 hover:scale-110 ${social.color}`}
+                  aria-label={`Visit my ${social.name} profile`}
                 >
                   <social.icon className="h-6 w-6" />
                 </a>

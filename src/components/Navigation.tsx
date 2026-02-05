@@ -93,11 +93,10 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "bg-gray-800/90 backdrop-blur-md border-b border-gray-700"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -118,11 +117,10 @@ export function Navigation() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-gray-100 hover:text-indigo-300 transition-colors duration-200 font-medium cursor-pointer ${
-                    currentActiveSection === item.href.replace("#", "")
+                  className={`text-gray-100 hover:text-indigo-300 transition-colors duration-200 font-medium cursor-pointer ${currentActiveSection === item.href.replace("#", "")
                       ? "text-indigo-400 font-bold underline underline-offset-8 decoration-indigo-400"
                       : ""
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </button>
@@ -139,6 +137,8 @@ export function Navigation() {
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="h-10 w-10 cursor-pointer hover:bg-indigo-900/20 transition-colors"
+                aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
                   <X className="h-5 w-5 text-indigo-400" />
@@ -158,11 +158,10 @@ export function Navigation() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-gray-100 hover:text-indigo-300 hover:bg-indigo-900/10 rounded-md transition-colors cursor-pointer ${
-                    currentActiveSection === item.href.replace("#", "")
+                  className={`block w-full text-left px-3 py-2 text-gray-100 hover:text-indigo-300 hover:bg-indigo-900/10 rounded-md transition-colors cursor-pointer ${currentActiveSection === item.href.replace("#", "")
                       ? "text-indigo-400 font-bold bg-indigo-900/10 underline underline-offset-8 decoration-indigo-400"
                       : ""
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </button>

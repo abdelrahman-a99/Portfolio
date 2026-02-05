@@ -112,6 +112,7 @@ export function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${social.color}`}
+                    aria-label={`Visit my ${social.name} profile`}
                   >
                     <social.icon className="h-6 w-6" />
                   </a>
