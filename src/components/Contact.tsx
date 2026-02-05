@@ -11,18 +11,19 @@ import { useToast } from "@/hooks/use-toast";
 
 import { contactInfo, socialLinks } from "@/data";
 
-const CONTACT_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-    website: "", // honeypot (anti-spam)
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,6 +35,21 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // Honeypot (Web3Forms supports botcheck)
+    const fd = new FormData(e.currentTarget);
+    const botcheck = fd.get("botcheck");
+    if (botcheck) return;
+
+    if (!accessKey) {
+      toast({
+        title: "Contact form not configured",
+        description:
+          "Set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in Vercel Environment Variables (and .env.local for local dev).",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -43,27 +59,36 @@ export function Contact() {
       return;
     }
 
-    // Honeypot: if bots fill it, do nothing
-    if (formData.website) return;
-
     setIsSubmitting(true);
 
     try {
-      const res = await fetch(CONTACT_ENDPOINT, {
+      const payload = {
+        access_key: accessKey,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        from_name: "Portfolio Website",
+        replyto: formData.email,
+        // optional reserved field (we already block via honeypot)
+        botcheck: false,
+      };
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        throw new Error("Failed to send");
+      const data = await res.json().catch(() => null);
+
+      // Web3Forms response can be: { success: true, body: { message: "..."} }
+      const ok = res.ok && (data?.success === true);
+      const apiMessage = data?.body?.message ?? data?.message;
+
+      if (!ok) {
+        throw new Error(apiMessage || "Failed to send message");
       }
 
       toast({
@@ -75,12 +100,13 @@ export function Contact() {
         name: "",
         email: "",
         message: "",
-        website: "",
       });
-    } catch {
+    } catch (err: any) {
       toast({
         title: "Could not send your message",
-        description: "Please try again in a minute (or contact me via email).",
+        description:
+          err?.message ||
+          "Please try again in a minute (or contact me via email).",
         variant: "destructive",
       });
     } finally {
@@ -169,12 +195,10 @@ export function Contact() {
 
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* honeypot hidden field */}
+                {/* Web3Forms recommended honeypot field */}
                 <input
-                  type="text"
-                  name="website"
-                  value={formData.website}
-                  onChange={handleInputChange}
+                  type="checkbox"
+                  name="botcheck"
                   className="hidden"
                   tabIndex={-1}
                   autoComplete="off"
