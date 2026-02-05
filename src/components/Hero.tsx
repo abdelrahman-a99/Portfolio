@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { RESUME_URL, personalLinks } from "@/data";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -76,7 +77,7 @@ export function Hero() {
                 className="border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-400 hover:text-indigo-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 shadow-glow hover:shadow-lg cursor-pointer"
               >
                 <a
-                  href="https://drive.google.com/file/d/1DTtSsYwfSxdeF0jRNPmb5zUaX4QyT0el/view?usp=sharing"
+                  href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -89,7 +90,7 @@ export function Hero() {
             {/* Social Links */}
             <div className="flex justify-center space-x-6 pt-4">
               <a
-                href="https://github.com/abdelrahman-a99"
+                href={personalLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -99,7 +100,7 @@ export function Hero() {
                 </Button>
               </a>
               <a
-                href="https://www.linkedin.com/in/abdelrahman-ahmed-fouad/"
+                href={personalLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -109,7 +110,7 @@ export function Hero() {
                 </Button>
               </a>
               <a
-                href="mailto:abdelrahmanahmedfouad9@gmail.com"
+                href={personalLinks.email}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Gmail"

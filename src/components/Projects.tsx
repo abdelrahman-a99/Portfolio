@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
-import { projects } from "@/data";
+import { projects, personalLinks } from "@/data";
 
 export function Projects() {
   return (
@@ -113,7 +113,7 @@ export function Projects() {
         {/* View All Projects CTA */}
         <div className="text-center mt-12 animate-fade-in">
           <a
-            href="https://github.com/abdelrahman-a99"
+            href={personalLinks.github}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -4,6 +4,16 @@ import {
   Mail, Phone, MapPin, Github, Linkedin
 } from "lucide-react";
 
+export const BASE_URL = "https://abdelrahmanahmedfouad.vercel.app";
+export const RESUME_URL = "https://drive.google.com/file/d/1DTtSsYwfSxdeF0jRNPmb5zUaX4QyT0el/view?usp=sharing";
+
+export const personalLinks = {
+  github: "https://github.com/abdelrahman-a99",
+  linkedin: "https://www.linkedin.com/in/abdelrahman-ahmed-fouad/",
+  email: "mailto:abdelrahmanahmedfouad9@gmail.com",
+  phone: "tel:+201200351201"
+};
+
 export const highlights = [
   {
     icon: GraduationCap,
@@ -119,13 +129,13 @@ export const contactInfo = [
     icon: Mail,
     title: "Email",
     details: "abdelrahmanahmedfouad9@gmail.com",
-    href: "mailto:abdelrahmanahmedfouad9@gmail.com"
+    href: personalLinks.email
   },
   {
     icon: Phone,
     title: "Phone",
     details: "+20 120 035 1201",
-    href: "tel:+201200351201"
+    href: personalLinks.phone
   },
   {
     icon: MapPin,
@@ -139,13 +149,13 @@ export const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
-    href: "https://github.com/abdelrahman-a99",
+    href: personalLinks.github,
     color: "hover:text-gray-900 dark:hover:text-white"
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/abdelrahman-ahmed-fouad/",
+    href: personalLinks.linkedin,
     color: "hover:text-blue-600"
   }
 ];

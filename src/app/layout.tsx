@@ -5,6 +5,7 @@ import { TooltipProvider } from '../components/ui/tooltip';
 import { Providers } from "@/components/providers";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
+import { BASE_URL, personalLinks } from "@/data";
 
 import "./globals.css";
 
@@ -26,11 +27,11 @@ export const metadata = {
     ".NET",
     "Projects"
   ],
-  authors: [{ name: "Abdelrahman Ahmed", url: "https://linkedin.com/in/abdelrahman-ahmed-fouad" }],
+  authors: [{ name: "Abdelrahman Ahmed", url: personalLinks.linkedin }],
   openGraph: {
     title: "Abdelrahman Ahmed | Portfolio",
     description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student. Showcasing projects in web development, AI/ML, and more.",
-    url: "https://abdelrahmanahmedfouad.vercel.app/",
+    url: BASE_URL,
     siteName: "Abdelrahman Ahmed Portfolio",
     images: [
       {
@@ -49,7 +50,7 @@ export const metadata = {
     description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student.",
     images: ["/assets/profile-photo.jpg"]
   },
-  metadataBase: new URL("https://abdelrahmanahmedfouad.vercel.app/")
+  metadataBase: new URL(BASE_URL)
 };
 
 export default function RootLayout({
@@ -68,11 +69,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Abdelrahman Ahmed",
-              "url": "https://abdelrahmanahmedfouad.vercel.app/",
+              "url": BASE_URL,
               "image": "/assets/profile-photo.jpg",
               "sameAs": [
-                "https://linkedin.com/in/abdelrahman-ahmed-fouad",
-                "https://github.com/abdelrahman-a99"
+                personalLinks.linkedin,
+                personalLinks.github
               ],
               "jobTitle": "Full Stack Developer & Computer Science Student",
               "description": "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student. Showcasing projects in web development, AI/ML, and more."
@@ -85,11 +86,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://abdelrahmanahmedfouad.vercel.app/",
+              "url": BASE_URL,
               "name": "Abdelrahman Ahmed Portfolio",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://abdelrahmanahmedfouad.vercel.app/?q={search_term_string}",
+                "target": `${BASE_URL}/?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               }
             })
