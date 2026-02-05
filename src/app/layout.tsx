@@ -97,7 +97,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="dark">
+      <body className="dark" suppressHydrationWarning>
         <Providers>
           <TooltipProvider>
             <Toaster />

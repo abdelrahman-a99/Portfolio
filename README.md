@@ -16,6 +16,8 @@ This portfolio highlights my experience as a Full Stack Developer and Computer S
 - **State Management:** React Query
 - **Forms & Validation:** React Hook Form
 - **Notifications:** Custom Toasts
+- **Analytics:** Vercel Analytics
+- **SEO:** Built-in Next.js Metadata, Dynamic Sitemap & Robots.txt
 
 ## 📦 Features
 - **Featured Projects:**
@@ -29,6 +31,13 @@ This portfolio highlights my experience as a Full Stack Developer and Computer S
   - Real email, phone, and location
   - Social links (GitHub, LinkedIn)
   - Toast notifications for form feedback
+- **SEO Optimized:**
+  - Dynamic Sitemap generation
+  - Semantic HTML & JSON-LD Schema
+  - Open Graph & Twitter Cards
+- **Performance:**
+  - Optimized images with `next/image`
+  - Vercel Analytics integration
 - **Mobile Friendly:**
   - Responsive layout
   - Mobile navigation with overlay and smooth scroll
@@ -64,14 +73,17 @@ This portfolio highlights my experience as a Full Stack Developer and Computer S
 
 ## 📂 Project Structure
 - `src/components/` — Reusable UI and section components
+- `src/data/` — Centralized content (Projects, Skills, Links)
 - `src/app/` — Next.js app directory (pages, layout, styles)
 - `public/assets/` — Project images and profile photo
 - `tailwind.config.ts` — Tailwind CSS configuration
 
 ## ✨ Customization
-- **Update your projects:** Edit `src/components/Projects.tsx`
-- **Edit skills/categories:** Edit `src/components/Skills.tsx`
-- **Change contact info:** Edit `src/components/Contact.tsx`
+All static content is centralized in `src/data/index.ts` for easy updates:
+- **Update your projects:** Edit `projects` array in `src/data/index.ts`
+- **Edit skills/categories:** Edit `skillCategories` array in `src/data/index.ts`
+- **Change contact info:** Edit `contactInfo` and `socialLinks` arrays in `src/data/index.ts`
+- **Global Links:** Update `BASE_URL` and `personalLinks` in `src/data/index.ts`
 - **Profile photo:** Replace `public/assets/profile-photo.jpg`
 
 ## 👤 About Me
