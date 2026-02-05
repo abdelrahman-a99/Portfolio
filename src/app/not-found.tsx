@@ -31,8 +31,8 @@ export default function NotFound() {
           </h2>
 
           <p className="mx-auto max-w-lg text-lg text-gray-400 leading-relaxed">
-            Oops! It seems you've ventured into uncharted digital territory.
-            The page you're looking for might have been moved or doesn't exist.
+            Oops! It seems you&apos;ve ventured into uncharted digital territory.
+            The page you&apos;re looking for might have been moved or doesn&apos;t exist.
           </p>
 
           <div className="flex justify-center pt-4">
