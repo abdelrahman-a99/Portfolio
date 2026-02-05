@@ -7,7 +7,7 @@ const highlights = [
   {
     icon: GraduationCap,
     title: "Computer Science Student",
-    description: "Junior CS student at Nile University with a 3.55 GPA, focusing on software engineering and machine learning"
+    description: "Senior CS student at Nile University with a 3.6 GPA, focusing on software engineering and machine learning"
   },
   {
     icon: Code2,
@@ -22,7 +22,7 @@ const highlights = [
   {
     icon: Trophy,
     title: "Mentorship & Recognition",
-    description: "Mentored 100+ students via GDG and Nile University TA role; active in UJRF and programming competitions"
+    description: "Mentored 250+ students via GDG and Nile University TA role; active in UJRF and programming competitions"
   }
 ];
 
@@ -45,14 +45,14 @@ export function About() {
           <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg max-w-none text-gray-400">
               <p className="text-gray-400 leading-relaxed mb-4">
-                I&apos;m a junior Computer Science student at Nile University and a graduate of the Digital Egypt Pioneers Full Stack program. 
+                I&apos;m a senior CS student at Nile University and a graduate of the Digital Egypt Pioneers Full Stack program. 
                 With a strong foundation in .NET development, Django, and Next.js, I enjoy crafting scalable web applications 
                 that are both functional and user-friendly.
               </p>
 
               <p className="text-gray-400 leading-relaxed mb-4">
                 My interests span full-stack development and machine learning. 
-                I&apos;ve mentored over 100 students through initiatives like the Google Developer Group 
+                I&apos;ve mentored over 250 students through initiatives like the Google Developer Group 
                 and served as a Junior Teaching Assistant at Nile University.
               </p>
 
@@ -70,7 +70,7 @@ export function About() {
                 <div className="text-sm text-gray-400">Projects Completed</div>
               </div>
               <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <div className="text-2xl font-bold text-indigo-400">3+</div>
+                <div className="text-2xl font-bold text-indigo-400">2+</div>
                 <div className="text-sm text-gray-400">Years Experience</div>
               </div>
             </div>

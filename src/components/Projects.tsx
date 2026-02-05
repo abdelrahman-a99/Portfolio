@@ -7,50 +7,50 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "NUPal",
+    description: "An AI-powered advising platform that guides Nile University students from academic planning to career development through a unified system with an intelligent chatbot.",
+    image: "/assets/NUPal-photo.png",
+    technologies: ["C#", ".NET", "MongoDB", "Next.js", "REST APIs", "RAG", "Reinforcement Learning", "AI Agent"],
+    features: [
+      "RAG chatbot to answer Nile University policy FAQs",
+      "RL-based recommendations for next-semester courses",
+      "AI agent that routes requests between RAG and RL models",
+      "End-to-end chatbot pipeline (agent + model orchestration)"
+    ],
+    github: "https://github.com/abdelrahman-a99/NUPAL-Frontend",
+    demo: "https://nupal-frontend.vercel.app",
+    category: "Full Stack"
+  },
+  {
+    title: "NUCPA",
+    description: "Competition registration and administration portal for NUCPA, allowing competitors across Egypt, Africa, and MENA to register online, track updates, and view results after the event.",
+    image: "/assets/NUCPA-photo.png",
+    technologies: ["Python", "Django", "PostgreSQL", "JavaScript", "TypeScript", "React", "Next.js", "REST APIs"],
+    features: [
+      "Competitor registration and submission forms",
+      "Yearly About pages and competition information updates",
+      "Admin panel to verify documents",
+      "Post-competition results publishing"
+    ],
+    github: "https://github.com/abdelrahman-a99/NUCPA-Front",
+    demo: "https://nucpa.org",
+    category: "Full Stack"
+  },
+  {
     title: "Hospital Management System",
     description: "Django-based web application enabling patients and doctors to manage appointments, view schedules, and track medical records through a secure and user-friendly interface.",
-    image: "/assets/hospital-project.jpg",
-    technologies: ["Python", "Django", "MySQL", , "HTML", "CSS", "JavaScript"],
+    image: "/assets/HMS-photo.png",
+    technologies: ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
     features: [
       "Patient-doctor registration and login",
       "Appointment scheduling",
       "Medical history  tracking",
       "Doctor schedule dashboard"
     ],
-    github: "github.com/abdelrahman-a99/Hospital-Management-System",
+    github: "https://github.com/abdelrahman-a99/Hospital-Management-System",
     // demo: "#",
     category: "Full Stack"
   },
-  {
-    title: "Animal Image Classifier",
-    description: "CNN model trained to classify 10 animal categories with 85% accuracy using TensorFlow. The project demonstrates image preprocessing, training, validation, and real-time classification.",
-    image: "/assets/ai-classifier-project.jpg",
-    technologies: ["Python", "NumPy", "Matplotlib", "Pandas", "TensorFlow", "Keras"],
-    features: [
-      "Custom dataset of 10 animal classes",
-      "CNN architecture implementation",
-      "Image preprocessing and augmentation",
-      "Accuracy tuning and model evaluation"
-    ],
-    github: "https://github.com/abdelrahman-a99/Zoo-Classifier",
-    // demo: "#",
-    category: "AI/ML"
-  },
-  {
-    title: "E-Learning Platform",
-    description: "Modern educational platform developed as part of the DEPI program. Built with .NET and Next.js, it includes course management, student progress tracking,  and instructor tools for online education.",
-    image: "/assets/elearning-project.jpg",
-    technologies: ["C#", ".NET", "SQL Server", "HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js"],
-    features: [
-      "Course management and purchase code validation",
-      "Student sign-up/login and progress tracking",
-      "Interactive assignments and quizes",
-      "Instructor dashboard with performance insights"
-    ],
-    github: "github.com/abdelrahman-a99/LearnEdge-Frontend",
-    // demo: "#",
-    category: "Education"
-  }
 ];
 
 export function Projects() {
@@ -78,8 +78,8 @@ export function Projects() {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={600} // or an appropriate width
-                    height={192} // or an appropriate height
+                    width={600}
+                    height={192}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 bg-gray-700"
                   />
                   <div className="absolute top-4 right-4">
@@ -91,7 +91,7 @@ export function Projects() {
               </CardHeader>
 
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-100 mb-3">
+                <h3 className="text-xl font-semibold text-gray-100 mb-2">
                   {project.title}
                 </h3>
                 
@@ -105,7 +105,7 @@ export function Projects() {
                     <Badge 
                       key={tech} 
                       variant="outline" 
-                      className="text-xs border-indigo-200 text-indigo-400"
+                      className="text-xs border-indigo-900 text-indigo-400"
                     >
                       {tech}
                     </Badge>
@@ -127,21 +127,29 @@ export function Projects() {
               <CardFooter className="p-6 pt-0">
                 <div className="flex gap-3 w-full">
                   <Button 
-                    // variant="outline" 
-                    size="sm" 
-                    // className="flex-1 border-indigo-200 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 cursor-pointer"
-                    className="flex-1 bg-indigo-900 hover:bg-indigo-800 text-indigo-100 cursor-pointer"
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 border-indigo-900 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 cursor-pointer"
                   >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4 mr-2" />
+                      Code
+                    </a>
                   </Button>
-                  {/* <Button 
-                    size="sm" 
-                    className="flex-1 bg-indigo-900 hover:bg-indigo-800 text-indigo-100 cursor-pointer"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Demo
-                  </Button> */}
+
+                  {project.demo && (
+                    <Button 
+                      asChild
+                      size="sm" 
+                      className="flex-1 bg-indigo-900 hover:bg-indigo-800 text-indigo-100 cursor-pointer"
+                    >
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardFooter>
             </Card>
@@ -158,7 +166,7 @@ export function Projects() {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-indigo-400 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="border-2 border-indigo-900 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <Github className="mr-2 h-5 w-5" />
               View All Projects on GitHub

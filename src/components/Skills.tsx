@@ -1,4 +1,5 @@
 'use client';
+
 import { Code, Database, Globe, Brain, Wrench, Users } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,19 +8,19 @@ const skillCategories = [
   {
     title: "Programming Languages",
     icon: Code,
-    skills: ["Python", "C/C++", "Java", "C#", "HTML/CSS", "JavaScript", "TypeScript", "SQL"],
-    description: "Proficient in multiple programming languages used across full stack and data development"
+    skills: ["Python", "C/C++", "Java", "C#", "HTML/CSS", "JavaScript", "TypeScript"],
+    description: "Proficient in multiple programming languages used across full stack development"
   },
   {
     title: "Frameworks & Libraries",
     icon: Globe,
-    skills: [".NET", "Flask", "Django", "Express.js", "React", "Next.js"],
+    skills: [".NET", "FastAPI", "Flask", "Django", "React", "Next.js"],
     description: "Hands-on experience with modern frameworks and libraries for building scalable web applications"
   },
   {
     title: "Databases & Tools",
     icon: Database,
-    skills: ["MySQL", "SQL Server", "MongoDB", "Git", "Docker", "VS Code"],
+    skills: ["MySQL", "SQL Server", "PostgreSQL", "MongoDB", "Git", "Docker"],
     description: "Skilled in database management and development tools expertise"
   },
   {
@@ -77,7 +78,7 @@ export function Skills() {
                 <p className="text-gray-400 mb-4 text-sm">{category.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="text-xs border-indigo-200 text-indigo-400 bg-gray-900/60">
+                    <Badge key={skill} variant="outline" className="text-xs border-indigo-900 text-indigo-400 bg-gray-900/60">
                       {skill}
                     </Badge>
                   ))}

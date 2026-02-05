@@ -64,7 +64,7 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -97,7 +97,7 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate? Let&apos;s discuss your next project or any opportunities 
+            Ready to collaborate? Let&apos;s discuss your next project or any opportunities
             you&apos;d like to explore together.
           </p>
         </div>
@@ -106,17 +106,17 @@ export function Contact() {
           {/* Contact Information */}
           <div className="space-y-8 animate-slide-in-left">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-100 mb-6">
+              <h3 className="text-2xl font-semibold text-gray-100 mb-2">
                 Let&apos;s Connect
               </h3>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                I&apos;m always open to discussing new opportunities, interesting projects, 
+              <p className="text-gray-400 leading-relaxed mb-2">
+                I&apos;m always open to discussing new opportunities, interesting projects,
                 or just having a chat about technology and innovation. Feel free to reach out!
               </p>
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((contact) => (
                 <div key={contact.title} className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center">
@@ -124,7 +124,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-100">{contact.title}</h4>
-                    <a 
+                    <a
                       href={contact.href}
                       className="text-gray-400 hover:text-indigo-400 transition-colors"
                     >
@@ -136,7 +136,7 @@ export function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="pt-8">
+            <div className="pt-2">
               <h4 className="font-medium text-gray-100 mb-4">Follow Me</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
@@ -157,15 +157,17 @@ export function Contact() {
           {/* Contact Form */}
           <Card className="animate-fade-in border-gray-700 bg-gray-800 text-gray-100">
             <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-gray-100">
+              <CardTitle className="text-2xl font-semibold text-gray-100 mt-2">
                 Send a Message
               </CardTitle>
             </CardHeader>
+
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name *</Label>
+                    <div className="mb-2"></div>
                     <Input
                       id="name"
                       name="name"
@@ -175,8 +177,10 @@ export function Contact() {
                       required
                     />
                   </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="email">Email *</Label>
+                    <div className="mb-2"></div>
                     <Input
                       id="email"
                       name="email"
@@ -190,18 +194,8 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="message">Message *</Label>
+                  <div className="mb-2"></div>
                   <Textarea
                     id="message"
                     name="message"
@@ -210,12 +204,13 @@ export function Contact() {
                     placeholder="Tell me about your project or opportunity..."
                     rows={6}
                     required
+                    className="resize-none"
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105"
+                <Button
+                  type="submit"
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer mt-2"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   Send Message
