@@ -107,7 +107,7 @@ export const skillCategories = [
   {
     title: "AI & Machine Learning",
     icon: Brain,
-    skills: ["NumPy", "Pandas", "Matplotlip", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "OpenCV"],
+    skills: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "OpenCV"],
     description: "Experience in building machine learning models and performing data analysis"
   },
   {

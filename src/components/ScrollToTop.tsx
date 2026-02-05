@@ -34,7 +34,7 @@ export function ScrollToTop() {
   }
 
   return (
-    <div className="fixed bottom-12 right-16 z-50 animate-fade-in">
+    <div className="fixed bottom-6 right-6 sm:bottom-16 sm:right-16 z-50 animate-fade-in">
       <Button
         onClick={scrollToTop}
         size="icon"

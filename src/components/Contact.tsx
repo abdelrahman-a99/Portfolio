@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,52 +11,85 @@ import { useToast } from "@/hooks/use-toast";
 
 import { contactInfo, socialLinks } from "@/data";
 
+const CONTACT_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
-    message: ""
+    message: "",
+    website: "", // honeypot (anti-spam)
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
+    // Honeypot: if bots fill it, do nothing
+    if (formData.website) return;
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you. I’ll get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        website: "",
+      });
+    } catch {
+      toast({
+        title: "Could not send your message",
+        description: "Please try again in a minute (or contact me via email).",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 pb-32 bg-gray-900 text-gray-100">
+    <section id="contact" className="min-h-screen py-20 pb-32 bg-gray-900 text-gray-100 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
@@ -90,12 +123,17 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-100">{contact.title}</h4>
-                    <a
-                      href={contact.href}
-                      className="text-gray-400 hover:text-indigo-400 transition-colors"
-                    >
-                      {contact.details}
-                    </a>
+
+                    {contact.href ? (
+                      <a
+                        href={contact.href}
+                        className="text-gray-400 hover:text-indigo-400 transition-colors"
+                      >
+                        {contact.details}
+                      </a>
+                    ) : (
+                      <span className="text-gray-400">{contact.details}</span>
+                    )}
                   </div>
                 </div>
               ))}
@@ -131,6 +169,17 @@ export function Contact() {
 
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* honeypot hidden field */}
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name *</Label>
@@ -142,6 +191,7 @@ export function Contact() {
                       onChange={handleInputChange}
                       placeholder="Your full name"
                       required
+                      autoComplete="name"
                     />
                   </div>
 
@@ -156,6 +206,7 @@ export function Contact() {
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
                       required
+                      autoComplete="email"
                     />
                   </div>
                 </div>
@@ -177,10 +228,20 @@ export function Contact() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer mt-2"
+                  disabled={isSubmitting}
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer mt-2 disabled:opacity-60 disabled:hover:translate-y-0"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>

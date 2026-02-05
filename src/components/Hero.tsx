@@ -15,7 +15,7 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900 text-gray-100 pt-24 pb-24">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900 text-gray-100 pt-24 pb-24 scroll-mt-24">
       {/* Background gradients */}
       <div className="absolute inset-0 bg-indigo-900/20 opacity-10"></div>
       <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-900/30 rounded-full blur-3xl animate-float"></div>
@@ -25,7 +25,7 @@ export function Hero() {
         <div className="text-center space-y-8 animate-fade-in">
           {/* Profile Photo */}
           <div className="relative inline-block">
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-3 border-indigo-400 shadow-lg animate-glow">
+            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-[3px] border-indigo-400 shadow-lg animate-glow">
               <Image
                 src="/assets/profile-photo.jpg"
                 alt="Abdelrahman Ahmed"

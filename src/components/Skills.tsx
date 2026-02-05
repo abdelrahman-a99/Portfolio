@@ -6,7 +6,7 @@ import { skillCategories } from "@/data";
 
 export function Skills() {
   return (
-    <section id="skills" className="min-h-screen py-20 bg-gray-900 text-gray-100">
+    <section id="skills" className="min-h-screen py-20 bg-gray-900 text-gray-100 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">

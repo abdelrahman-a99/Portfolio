@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -18,36 +17,48 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [manualActiveSection, setManualActiveSection] = useState<string | null>(null);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  const manualActiveSectionRef = useRef<string | null>(null);
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // keep ref in sync (so observer callback doesn't re-create)
+  useEffect(() => {
+    manualActiveSectionRef.current = manualActiveSection;
+  }, [manualActiveSection]);
+
+  // navbar background on scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const updateActiveSection = useCallback(() => {
-    if (manualActiveSection) return; // Don't update if user is scrolling to a section
+  useEffect(() => {
     const sectionIds = navigationItems.map((item) => item.href.replace("#", ""));
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
 
-    let observer: IntersectionObserver | null = null;
-    if (sections.length === 0) return;
+    if (!sections.length) return;
 
-    observer = new window.IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
+        // if user manually clicked and smooth scrolling, ignore observer updates
+        if (manualActiveSectionRef.current) return;
+
         let maxRatio = 0;
         let activeId = sectionIds[0];
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= maxRatio) {
             maxRatio = entry.intersectionRatio;
-            activeId = entry.target.id;
+            activeId = (entry.target as HTMLElement).id;
           }
-        });
+        }
+
         setActiveSection(activeId);
       },
       {
@@ -56,35 +67,34 @@ export function Navigation() {
         threshold: Array.from({ length: 101 }, (_, i) => i / 100),
       }
     );
-    sections.forEach((section) => {
-      observer!.observe(section);
-    });
-    return () => {
-      if (observer) observer.disconnect();
-    };
-  }, [manualActiveSection]);
 
-  useLayoutEffect(() => {
-    const cleanup = updateActiveSection();
-    window.addEventListener("resize", updateActiveSection);
-    window.addEventListener("scroll", updateActiveSection);
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     return () => {
-      if (cleanup) cleanup();
-      window.removeEventListener("resize", updateActiveSection);
-      window.removeEventListener("scroll", updateActiveSection);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     };
-  }, [updateActiveSection]);
+  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      setManualActiveSection(href.replace('#', ''));
-      element.scrollIntoView({ behavior: "smooth" });
-      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
-      scrollTimeout.current = setTimeout(() => {
-        setManualActiveSection(null);
-      }, 700); // Wait for smooth scroll to finish
-    }
+    if (!element) return;
+
+    const id = href.replace("#", "");
+    setManualActiveSection(id);
+    manualActiveSectionRef.current = id;
+
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    scrollTimeout.current = setTimeout(() => {
+      setManualActiveSection(null);
+      manualActiveSectionRef.current = null;
+    }, 800);
+
     setIsMobileMenuOpen(false);
   };
 
@@ -129,7 +139,6 @@ export function Navigation() {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-2">
-            {/* Mobile menu button */}
             <div className="md:hidden">
               <Button
                 variant="ghost"
