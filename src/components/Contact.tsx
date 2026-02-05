@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,41 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 
-const contactInfo = [
-  {
-    icon: Mail,
-    title: "Email",
-    details: "abdelrahmanahmedfouad9@gmail.com",
-    href: "mailto:abdelrahmanahmedfouad9@gmail.com"
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    details: "+20 120 035 1201",
-    href: "tel:+201200351201"
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    details: "Giza, Egypt",
-    // href: "#"
-  }
-];
-
-const socialLinks = [
-  {
-    name: "GitHub",
-    icon: Github,
-    href: "https://github.com/abdelrahman-a99",
-    color: "hover:text-gray-900 dark:hover:text-white"
-  },
-  {
-    name: "LinkedIn",
-    icon: Linkedin,
-    href: "https://www.linkedin.com/in/abdelrahman-ahmed-fouad/",
-    color: "hover:text-blue-600"
-  }
-];
+import { contactInfo, socialLinks } from "@/data";
 
 export function Contact() {
   const [formData, setFormData] = useState({

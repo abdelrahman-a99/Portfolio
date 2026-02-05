@@ -1,30 +1,7 @@
 'use client';
 
-import { GraduationCap, Code2, Brain, Trophy } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const highlights = [
-  {
-    icon: GraduationCap,
-    title: "Computer Science Student",
-    description: "Senior CS student at Nile University with a 3.6 GPA, focusing on software engineering and machine learning"
-  },
-  {
-    icon: Code2,
-    title: ".NET Full Stack Developer",
-    description: "Graduate of the DEPI Full Stack Program, experienced in C#, .NET Core, and ASP.NET MVC"
-  },
-  {
-    icon: Brain,
-    title: "AI & Machine Learning",
-    description: "Built an image classifier with TensorFlow achieving 85% accuracy and explored data-driven growth prediction models"
-  },
-  {
-    icon: Trophy,
-    title: "Mentorship & Recognition",
-    description: "Mentored 250+ students via GDG and Nile University TA role; active in UJRF and programming competitions"
-  }
-];
+import { highlights } from "@/data";
 
 export function About() {
   return (
@@ -35,7 +12,7 @@ export function About() {
             About Me
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A passionate developer combining academic knowledge with practical experience 
+            A passionate developer combining academic knowledge with practical experience
             to create innovative solutions
           </p>
         </div>
@@ -45,24 +22,24 @@ export function About() {
           <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg max-w-none text-gray-400">
               <p className="text-gray-400 leading-relaxed mb-4">
-                I&apos;m a senior CS student at Nile University and a graduate of the Digital Egypt Pioneers Full Stack program. 
-                With a strong foundation in .NET development, Django, and Next.js, I enjoy crafting scalable web applications 
+                I&apos;m a senior CS student at Nile University and a graduate of the Digital Egypt Pioneers Full Stack program.
+                With a strong foundation in .NET development, Django, and Next.js, I enjoy crafting scalable web applications
                 that are both functional and user-friendly.
               </p>
 
               <p className="text-gray-400 leading-relaxed mb-4">
-                My interests span full-stack development and machine learning. 
-                I&apos;ve mentored over 250 students through initiatives like the Google Developer Group 
+                My interests span full-stack development and machine learning.
+                I&apos;ve mentored over 250 students through initiatives like the Google Developer Group
                 and served as a Junior Teaching Assistant at Nile University.
               </p>
 
               <p className="text-gray-400 leading-relaxed">
-                Beyond coding, I actively participate in programming competitions and collaborate on academic projects 
-                that connect technology with societal impact. I believe in clean code, continuous learning, 
+                Beyond coding, I actively participate in programming competitions and collaborate on academic projects
+                that connect technology with societal impact. I believe in clean code, continuous learning,
                 and using tech to solve meaningful problems.
               </p>
             </div>
-            
+
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-6">
               <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
@@ -79,8 +56,8 @@ export function About() {
           {/* Right side - Highlight cards */}
           <div className="grid gap-6">
             {highlights.map((highlight, index) => (
-              <Card 
-                key={highlight.title} 
+              <Card
+                key={highlight.title}
                 className="hover:shadow-md transition-all duration-300 hover:scale-105 animate-fade-in border-gray-700 bg-gray-800 text-gray-100"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

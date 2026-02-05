@@ -1,47 +1,8 @@
 'use client';
 
-import { Code, Database, Globe, Brain, Wrench, Users } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-const skillCategories = [
-  {
-    title: "Programming Languages",
-    icon: Code,
-    skills: ["Python", "C/C++", "Java", "C#", "HTML/CSS", "JavaScript", "TypeScript"],
-    description: "Proficient in multiple programming languages used across full stack development"
-  },
-  {
-    title: "Frameworks & Libraries",
-    icon: Globe,
-    skills: [".NET", "FastAPI", "Flask", "Django", "React", "Next.js"],
-    description: "Hands-on experience with modern frameworks and libraries for building scalable web applications"
-  },
-  {
-    title: "Databases & Tools",
-    icon: Database,
-    skills: ["MySQL", "SQL Server", "PostgreSQL", "MongoDB", "Git", "Docker"],
-    description: "Skilled in database management and development tools expertise"
-  },
-  {
-    title: "AI & Machine Learning",
-    icon: Brain,
-    skills: ["NumPy", "Pandas", "Matplotlip", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "OpenCV"],
-    description: "Experience in building machine learning models and performing data analysis"
-  },
-  {
-    title: "Development Practices",
-    icon: Wrench,
-    skills: ["Agile", "REST APIs", "Testing", "CI/CD", "Version Control", "Code Review"],
-    description: "Knowledge of  modern development workflows, methodologies and best practices"
-  },
-  {
-    title: "Soft Skills",
-    icon: Users,
-    skills: ["Problem Solving", "Communication & Collaboration", "Leadership", "Project Management"],
-    description: "Strong interpersonal skills essential for mentoring, teamwork, and project execution"
-  }
-];
+import { skillCategories } from "@/data";
 
 export function Skills() {
   return (
@@ -52,15 +13,15 @@ export function Skills() {
             Skills & Expertise
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A comprehensive toolkit of technologies and methodologies I use to build 
+            A comprehensive toolkit of technologies and methodologies I use to build
             innovative solutions
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <Card 
-              key={category.title} 
+            <Card
+              key={category.title}
               className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-gray-700 animate-fade-in bg-gray-800 text-gray-100"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -95,11 +56,11 @@ export function Skills() {
               Continuous Learning & Growth
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              Technology evolves rapidly, and so do I. I&apos;m constantly exploring new frameworks, 
-              methodologies, and best practices. Currently, I&apos;m diving deeper into full stack, 
+              Technology evolves rapidly, and so do I. I&apos;m constantly exploring new frameworks,
+              methodologies, and best practices. Currently, I&apos;m diving deeper into full stack,
               advanced AI concepts, and cloud technologies to stay at the forefront of innovation.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="text-center">
                 <div className="text-2xl font-bold text-indigo-400 mb-2">120+</div>

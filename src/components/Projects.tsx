@@ -5,53 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
-const projects = [
-  {
-    title: "NUPal",
-    description: "An AI-powered advising platform that guides Nile University students from academic planning to career development through a unified system with an intelligent chatbot.",
-    image: "/assets/NUPal-photo.png",
-    technologies: ["C#", ".NET", "MongoDB", "Next.js", "REST APIs", "RAG", "Reinforcement Learning", "AI Agent"],
-    features: [
-      "RAG chatbot to answer Nile University policy FAQs",
-      "RL-based recommendations for next-semester courses",
-      "AI agent that routes requests between RAG and RL models",
-      "End-to-end chatbot pipeline (agent + model orchestration)"
-    ],
-    github: "https://github.com/abdelrahman-a99/NUPAL-Frontend",
-    demo: "https://nupal-frontend.vercel.app",
-    category: "Full Stack"
-  },
-  {
-    title: "NUCPA",
-    description: "Competition registration and administration portal for NUCPA, allowing competitors across Egypt, Africa, and MENA to register online, track updates, and view results after the event.",
-    image: "/assets/NUCPA-photo.png",
-    technologies: ["Python", "Django", "PostgreSQL", "JavaScript", "TypeScript", "React", "Next.js", "REST APIs"],
-    features: [
-      "Competitor registration and submission forms",
-      "Yearly About pages and competition information updates",
-      "Admin panel to verify documents",
-      "Post-competition results publishing"
-    ],
-    github: "https://github.com/abdelrahman-a99/NUCPA-Front",
-    demo: "https://nucpa.org",
-    category: "Full Stack"
-  },
-  {
-    title: "Hospital Management System",
-    description: "Django-based web application enabling patients and doctors to manage appointments, view schedules, and track medical records through a secure and user-friendly interface.",
-    image: "/assets/HMS-photo.png",
-    technologies: ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
-    features: [
-      "Patient-doctor registration and login",
-      "Appointment scheduling",
-      "Medical history  tracking",
-      "Doctor schedule dashboard"
-    ],
-    github: "https://github.com/abdelrahman-a99/Hospital-Management-System",
-    // demo: "#",
-    category: "Full Stack"
-  },
-];
+import { projects } from "@/data";
 
 export function Projects() {
   return (
@@ -68,8 +22,8 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card 
-              key={project.title} 
+            <Card
+              key={project.title}
               className="group hover:shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden border-gray-700 animate-fade-in bg-gray-800 text-gray-100"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -94,7 +48,7 @@ export function Projects() {
                 <h3 className="text-xl font-semibold text-gray-100 mb-2">
                   {project.title}
                 </h3>
-                
+
                 <p className="text-gray-400 text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
@@ -102,9 +56,9 @@ export function Projects() {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
-                    <Badge 
-                      key={tech} 
-                      variant="outline" 
+                    <Badge
+                      key={tech}
+                      variant="outline"
                       className="text-xs border-indigo-900 text-indigo-400"
                     >
                       {tech}
@@ -126,7 +80,7 @@ export function Projects() {
 
               <CardFooter className="p-6 pt-0">
                 <div className="flex gap-3 w-full">
-                  <Button 
+                  <Button
                     asChild
                     variant="outline"
                     size="sm"
@@ -139,9 +93,9 @@ export function Projects() {
                   </Button>
 
                   {project.demo && (
-                    <Button 
+                    <Button
                       asChild
-                      size="sm" 
+                      size="sm"
                       className="flex-1 bg-indigo-900 hover:bg-indigo-800 text-indigo-100 cursor-pointer"
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
@@ -163,8 +117,8 @@ export function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-2 border-indigo-900 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
