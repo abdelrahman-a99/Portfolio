@@ -17,110 +17,110 @@ export const personalLinks = {
 export const highlights = [
   {
     icon: GraduationCap,
-    title: "Computer Science Student",
-    description: "Senior CS student at Nile University with a 3.6 GPA, focusing on software engineering and machine learning"
+    title: "Senior CS student",
+    description: "Senior Computer Science student at Nile University with a 3.6 GPA and a software engineering focus"
   },
   {
     icon: Code2,
-    title: ".NET Full Stack Developer",
-    description: "Graduate of the DEPI Full Stack Program, experienced in C#, .NET Core, and ASP.NET MVC"
+    title: "Full Stack Developer",
+    description: "Builds web applications using .NET, Django, FastAPI, Next.js, React, TypeScript, and SQL/NoSQL databases"
   },
   {
     icon: Brain,
-    title: "AI & Machine Learning",
-    description: "Built an image classifier with TensorFlow achieving 85% accuracy and explored data-driven growth prediction models"
+    title: "AI/RAG Systems",
+    description: "Works on AI-integrated platforms involving RAG, LLM orchestration, AI agents, and RL-based recommendations"
   },
   {
     icon: Trophy,
-    title: "Mentorship & Recognition",
-    description: "Mentored 250+ students via GDG and Nile University TA role; active in UJRF and programming competitions"
+    title: "Mentorship & Problem Solving",
+    description: "Mentored and taught 300+ students; Codeforces Specialist with strong algorithms and problem-solving background"
   }
 ];
 
 export const projects = [
   {
     title: "NUPal",
-    description: "An AI-powered advising platform that guides Nile University students from academic planning to career development through a unified system with an intelligent chatbot.",
+    description: "An AI academic and career advising platform for Nile University students, combining academic policy Q&A, semester planning, and career guidance in one unified system.",
     image: "/assets/NUPal-photo.png",
-    technologies: ["C#", ".NET", "MongoDB", "Next.js", "REST APIs", "RAG", "Reinforcement Learning", "AI Agent"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "ASP.NET Core", "MongoDB", "FastAPI", "RAG", "RL", "LLM Orchestration"],
     features: [
-      "RAG chatbot to answer Nile University policy FAQs",
-      "RL-based recommendations for next-semester courses",
-      "AI agent that routes requests between RAG and RL models",
-      "End-to-end chatbot pipeline (agent + model orchestration)"
+      "RAG-based policy FAQ chatbot",
+      "RL-based next-semester course recommendations",
+      "Route-aware AI agent for request orchestration",
+      "Frontend, backend, and AI service integration"
     ],
     github: "https://github.com/abdelrahman-a99/NUPAL-Frontend",
-    demo: "https://nupal-frontend.vercel.app",
-    category: "Full Stack"
+    demo: "https://nupal.vercel.app/",
+    category: "Full Stack + AI"
+  },
+  {
+    title: "بَيِّنَة",
+    description: "Arabic-first RAG Islamic assistant frontend grounded in Qur’an, tafsir, Sunnah, and curated narrative resources, designed for a clean RTL chat experience.",
+    image: "/assets/Bayyinah-photo.png",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase Auth", "Vercel", "RTL UI", "RAG"],
+    features: [
+      "Arabic RTL chat interface",
+      "Supabase Google authentication",
+      "Conversation history with rename/delete actions",
+      "Streaming responses and citation-aware answer rendering"
+    ],
+    github: "https://github.com/abdelrahman-a99/Bayyinah-Front",
+    demo: "https://bayyinah-alpha.vercel.app/",
+    category: "Frontend + RAG"
   },
   {
     title: "NUCPA",
-    description: "Competition registration and administration portal for NUCPA, allowing competitors across Egypt, Africa, and MENA to register online, track updates, and view results after the event.",
+    description: "Competition registration and administration platform for Nile University competitive programming activities, allowing competitors across Egypt, Africa, and MENA to register online, track updates, and view results after the event.",
     image: "/assets/NUCPA-photo.png",
-    technologies: ["Python", "Django", "PostgreSQL", "JavaScript", "TypeScript", "React", "Next.js", "REST APIs"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Django", "PostgreSQL", "REST APIs"],
     features: [
-      "Competitor registration and submission forms",
-      "Yearly About pages and competition information updates",
-      "Admin panel to verify documents",
-      "Post-competition results publishing"
+      "Team registration portal",
+      "Admin dashboard and document verification",
+      "Status management and contest pages",
+      "Secure API communication with HTTP-only cookie handling"
     ],
     github: "https://github.com/abdelrahman-a99/NUCPA-Front",
     demo: "https://nucpa.org",
     category: "Full Stack"
-  },
-  {
-    title: "Hospital Management System",
-    description: "Django-based web application enabling patients and doctors to manage appointments, view schedules, and track medical records through a secure and user-friendly interface.",
-    image: "/assets/HMS-photo.png",
-    technologies: ["Python", "Django", "MySQL", "HTML", "CSS", "JavaScript"],
-    features: [
-      "Patient-doctor registration and login",
-      "Appointment scheduling",
-      "Medical history  tracking",
-      "Doctor schedule dashboard"
-    ],
-    github: "https://github.com/abdelrahman-a99/Hospital-Management-System",
-    // demo: "#",
-    category: "Full Stack"
-  },
+  }
 ];
 
 export const skillCategories = [
   {
     title: "Programming Languages",
     icon: Code,
-    skills: ["Python", "C/C++", "Java", "C#", "HTML/CSS", "JavaScript", "TypeScript"],
-    description: "Proficient in multiple programming languages used across full stack development"
+    skills: ["Python", "C/C++", "Java", "C#", "JavaScript", "TypeScript", "HTML/CSS"],
+    description: "Programming foundations across backend, frontend, AI/data workflows, and competitive programming"
   },
   {
-    title: "Frameworks & Libraries",
+    title: "Frontend Development",
     icon: Globe,
-    skills: [".NET", "FastAPI", "Flask", "Django", "React", "Next.js"],
-    description: "Hands-on experience with modern frameworks and libraries for building scalable web applications"
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Bootstrap", "shadcn/ui", "Responsive UI"],
+    description: "Building modern, responsive interfaces, dashboards, forms, chat UIs, and user-facing web applications"
   },
   {
-    title: "Databases & Tools",
+    title: "Backend Development",
     icon: Database,
-    skills: ["MySQL", "SQL Server", "PostgreSQL", "MongoDB", "Git", "Docker"],
-    description: "Skilled in database management and development tools expertise"
+    skills: [".NET Core", "ASP.NET MVC", "Django", "FastAPI", "Flask", "REST APIs", "SQL Server", "PostgreSQL", "MongoDB"],
+    description: "Developing APIs, database-backed systems, authentication flows, and service integrations"
   },
   {
-    title: "AI & Machine Learning",
+    title: "AI, RAG & Data",
     icon: Brain,
-    skills: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "TensorFlow", "Keras", "PyTorch", "OpenCV"],
-    description: "Experience in building machine learning models and performing data analysis"
+    skills: ["RAG Systems", "LLM Orchestration", "AI Agents", "RL Basics", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch", "OpenCV"],
+    description: "Experience with AI-integrated systems, retrieval-grounded assistants, ML projects, and data analysis"
   },
   {
-    title: "Development Practices",
+    title: "Tools & Practices",
     icon: Wrench,
-    skills: ["Agile", "REST APIs", "Testing", "CI/CD", "Version Control", "Code Review"],
-    description: "Knowledge of  modern development workflows, methodologies and best practices"
+    skills: ["Git", "GitHub", "Docker", "Postman", "Unit Testing", "Clean Architecture", "MVC", "Agile", "Code Review"],
+    description: "Using modern development workflows, clean code practices, testing, and team collaboration"
   },
   {
-    title: "Soft Skills",
+    title: "Leadership & Communication",
     icon: Users,
-    skills: ["Problem Solving", "Communication & Collaboration", "Leadership", "Project Management"],
-    description: "Strong interpersonal skills essential for mentoring, teamwork, and project execution"
+    skills: ["Mentoring", "Teaching", "Problem Solving", "Team Collaboration", "Leadership", "Project Management"],
+    description: "Mentored and taught 300+ students while supporting teams through code reviews and technical guidance"
   }
 ];
 

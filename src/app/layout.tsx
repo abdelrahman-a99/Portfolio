@@ -6,24 +6,29 @@ import { BASE_URL, personalLinks } from "@/data";
 import "./globals.css";
 
 export const metadata = {
-  title: "Abdelrahman Ahmed | Portfolio",
-  description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student. Showcasing projects in web development, AI/ML, and more.",
+  title: "Abdelrahman Ahmed | Full Stack & AI/RAG Systems Developer",
+  description: "Portfolio of Abdelrahman Ahmed, Senior Computer Science student at Nile University building full-stack web applications, backend services, and AI/RAG systems using .NET, Django, FastAPI, Next.js, React, and TypeScript.",
   keywords: [
     "Abdelrahman Ahmed",
     "Portfolio",
     "Full Stack Developer",
-    "Web Developer",
-    "Web Application",
-    "AI",
-    "Machine Learning",
-    "Frontend",
-    "React",
-    "Next.js",
+    "Software Engineer",
+    ".NET Developer",
+    "Django Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "AI Engineer",
+    "RAG Systems",
+    "LLM Orchestration",
+    "Nile University",
+    "Codeforces Specialist",
   ],
   authors: [{ name: "Abdelrahman Ahmed", url: personalLinks.linkedin }],
   openGraph: {
-    title: "Abdelrahman Ahmed | Portfolio",
-    description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student. Showcasing projects in web development, AI/ML, and more.",
+    title: "Abdelrahman Ahmed | Full Stack & AI/RAG Systems Developer",
+    description: "Portfolio showcasing full-stack, backend, frontend, and AI/RAG systems projects by Abdelrahman Ahmed.",
     url: BASE_URL,
     siteName: "Abdelrahman Ahmed Portfolio",
     images: [
@@ -39,8 +44,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdelrahman Ahmed | Portfolio",
-    description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student.",
+    title: "Abdelrahman Ahmed | Full Stack & AI/RAG Systems Developer",
+    description: "Full-stack, backend, frontend, and AI/RAG systems portfolio.",
     images: ["/assets/profile-photo.jpg"],
   },
   metadataBase: new URL(BASE_URL),
@@ -65,8 +70,8 @@ export default function RootLayout({
               url: BASE_URL,
               image: "/assets/profile-photo.jpg",
               sameAs: [personalLinks.linkedin, personalLinks.github],
-              jobTitle: "Full Stack Developer & Computer Science Student",
-              description: "Portfolio of Abdelrahman Ahmed, Full Stack Developer & Computer Science Student.",
+              jobTitle: "Full Stack Developer and AI/RAG Systems Developer",
+              description: "Senior Computer Science student at Nile University building full-stack applications, backend services, and AI/RAG systems.",
             }),
           }}
         />

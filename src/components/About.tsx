@@ -22,33 +22,33 @@ export function About() {
           <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg max-w-none text-gray-400">
               <p className="text-gray-400 leading-relaxed mb-4">
-                I&apos;m a senior CS student at Nile University and a graduate of the Digital Egypt Pioneers Full Stack program.
-                With a strong foundation in .NET development, Django, and Next.js, I enjoy crafting scalable web applications
-                that are both functional and user-friendly.
+                I&apos;m a senior Computer Science student at Nile University focused on software engineering,
+                full-stack development, and AI-powered systems. I build web applications using .NET, Django,
+                FastAPI, Next.js, React, TypeScript, and SQL/NoSQL databases.
               </p>
 
               <p className="text-gray-400 leading-relaxed mb-4">
-                My interests span full-stack development and machine learning.
-                I&apos;ve mentored over 250 students through initiatives like the Google Developer Group
-                and served as a Junior Teaching Assistant at Nile University.
+                My work includes backend APIs, responsive frontends, admin dashboards, authentication flows,
+                multi-step forms, clean architecture, and AI-integrated platforms. I&apos;ve contributed to projects
+                involving RAG-based assistants, RL-based recommendations, route-aware agents, and LLM orchestration.
               </p>
 
               <p className="text-gray-400 leading-relaxed">
-                Beyond coding, I actively participate in programming competitions and collaborate on academic projects
-                that connect technology with societal impact. I believe in clean code, continuous learning,
-                and using tech to solve meaningful problems.
+                Alongside development, I have mentored and taught 300+ students through Nile University, GDG,
+                Microsoft Students Club, and iSchool. I also actively practice competitive programming as a
+                Codeforces Specialist.
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-6">
               <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <div className="text-2xl font-bold text-indigo-400">15+</div>
-                <div className="text-sm text-gray-400">Projects Completed</div>
+                <div className="text-2xl font-bold text-indigo-400">300+</div>
+                <div className="text-sm text-gray-400">Students Mentored</div>
               </div>
               <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <div className="text-2xl font-bold text-indigo-400">2+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
+                <div className="text-2xl font-bold text-indigo-400">500+</div>
+                <div className="text-sm text-gray-400">Problems Solved</div>
               </div>
             </div>
           </div>

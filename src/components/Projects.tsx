@@ -16,7 +16,7 @@ export function Projects() {
             Featured Projects
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A showcase of my work spanning full-stack development, AI/ML, and innovative solutions
+            A showcase of my strongest full-stack, AI/RAG, and software engineering projects
           </p>
         </div>
 

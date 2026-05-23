@@ -28,8 +28,8 @@ export function Footer() {
               Abdelrahman Ahmed
             </button>
             <p className="text-muted-foreground">
-              Full Stack Developer passionate about creating innovative solutions
-              with modern technologies.
+              Full Stack Developer building web applications, backend services,
+              and AI/RAG systems with modern technologies.
             </p>
           </div>
 
@@ -71,8 +71,8 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <p className="text-sm text-muted-foreground">
-              Let&apos;s build something amazing together!
+            <p className="text-muted-foreground text-sm">
+              Open to full-stack, backend, frontend, AI/RAG, and R&D-oriented software roles.
             </p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export function Footer() {
             © {currentYear} Abdelrahman Ahmed. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm flex items-center">
-            Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> using React & TypeScript
+            Built with <Heart className="h-4 w-4 mx-1 text-red-500" /> using Next.js & TypeScript
           </p>
         </div>
       </div>

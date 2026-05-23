@@ -53,9 +53,9 @@ export function Hero() {
             </p>
 
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Senior CS student at Nile University. Build web apps with .NET, Django, and Next.js.
-              DEPI .NET Track graduate; strong problem-solving (Codeforces Specialist).
-              Passionate about scalable web solutions, AI/ML, and competitive programming.
+              Senior CS student at Nile University building full-stack web applications and AI-integrated systems
+              with .NET, Django, FastAPI, Next.js, React, and TypeScript. Codeforces Specialist with experience
+              in RAG systems, LLM orchestration, and mentoring 300+ students.
             </p>
 
             {/* CTA Buttons */}
