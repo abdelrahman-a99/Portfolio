@@ -4,7 +4,13 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
-import { RESUME_URL, personalLinks, profile } from "@/data";
+
+import {
+  RESUME_URL,
+  personalLinks,
+  profile,
+  statistics,
+} from "@/data";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -55,7 +61,8 @@ export function Hero() {
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Senior CS student at Nile University building full-stack web applications and AI-integrated systems
               with .NET, Django, FastAPI, Next.js, React, and TypeScript. Codeforces Specialist with experience
-              in RAG systems, LLM orchestration, and mentoring 300+ students.
+              in RAG systems, LLM orchestration, and mentoring{" "}
+              {statistics.studentsMentored.value} students.
             </p>
 
             {/* CTA Buttons */}

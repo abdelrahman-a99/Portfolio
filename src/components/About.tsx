@@ -1,7 +1,12 @@
 'use client';
 
 import { Card, CardContent } from "@/components/ui/card";
-import { highlights } from "@/data";
+
+import {
+  highlights,
+  statistics,
+  aboutStatistics,
+} from "@/data";
 
 export function About() {
   return (
@@ -34,7 +39,8 @@ export function About() {
               </p>
 
               <p className="text-gray-400 leading-relaxed">
-                Alongside development, I have mentored and taught 300+ students through Nile University, GDG,
+                Alongside development, I have mentored and taught{" "}
+                {statistics.studentsMentored.value} students through Nile University, GDG,
                 Microsoft Students Club, and iSchool. I also actively practice competitive programming as a
                 Codeforces Specialist.
               </p>
@@ -42,14 +48,19 @@ export function About() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4 pt-6">
-              <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <div className="text-2xl font-bold text-indigo-400">300+</div>
-                <div className="text-sm text-gray-400">Students Mentored</div>
-              </div>
-              <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                <div className="text-2xl font-bold text-indigo-400">500+</div>
-                <div className="text-sm text-gray-400">Problems Solved</div>
-              </div>
+              {aboutStatistics.map((statistic) => (
+                <div
+                  key={statistic.id}
+                  className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700"
+                >
+                  <div className="text-2xl font-bold text-indigo-400">
+                    {statistic.value}
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    {statistic.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

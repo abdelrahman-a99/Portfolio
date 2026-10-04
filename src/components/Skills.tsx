@@ -2,7 +2,11 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { skillCategories } from "@/data";
+
+import {
+  skillCategories,
+  focusStatistics,
+} from "@/data";
 
 export function Skills() {
   return (
@@ -62,18 +66,16 @@ export function Skills() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-indigo-400 mb-2">10+</div>
-                <div className="text-sm text-gray-400">Core Technologies</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-indigo-400 mb-2">3+</div>
-                <div className="text-sm text-gray-400">Major Platforms Built</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-indigo-400 mb-2">5+</div>
-                <div className="text-sm text-gray-400">Certificates & Recognitions</div>
-              </div>
+              {focusStatistics.map((statistic) => (
+                <div key={statistic.id} className="text-center">
+                  <div className="text-2xl font-bold text-indigo-400 mb-2">
+                    {statistic.value}
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    {statistic.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

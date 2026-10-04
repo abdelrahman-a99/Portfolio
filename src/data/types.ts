@@ -40,3 +40,9 @@ export interface NavigationItem {
   href: `#${string}`;
   showInFooter: boolean;
 }
+
+export interface Statistic {
+  id: string;
+  value: string;
+  label: string;
+}

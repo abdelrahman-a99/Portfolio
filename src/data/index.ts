@@ -5,8 +5,16 @@ import {
 } from "lucide-react";
 
 import { profile } from "./profile";
+import { statistics } from "./statistics";
 
 export { profile };
+export { statistics };
+
+export {
+  aboutStatistics,
+  focusStatistics,
+} from "./statistics";
+
 export type { Profile } from "./types";
 
 export {
@@ -46,7 +54,9 @@ export const highlights = [
   {
     icon: Trophy,
     title: "Mentorship & Problem Solving",
-    description: "Mentored and taught 300+ students; Codeforces Specialist with strong algorithms and problem-solving background"
+    description:
+      `Mentored and taught ${statistics.studentsMentored.value} students; ` +
+      "Codeforces Specialist with strong algorithms and problem-solving background",
   }
 ];
 
@@ -133,7 +143,9 @@ export const skillCategories = [
     title: "Leadership & Communication",
     icon: Users,
     skills: ["Mentoring", "Teaching", "Problem Solving", "Team Collaboration", "Leadership", "Project Management"],
-    description: "Mentored and taught 300+ students while supporting teams through code reviews and technical guidance"
+    description:
+      `Mentored and taught ${statistics.studentsMentored.value} students ` +
+      "while supporting teams through code reviews and technical guidance",
   }
 ];
 
