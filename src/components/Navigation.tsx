@@ -4,13 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-const navigationItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
-];
+import { navigationItems, profile } from "@/data";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -115,7 +109,7 @@ export function Navigation() {
               onClick={() => scrollToSection("#home")}
               className="text-xl font-bold text-indigo-400 hover:scale-105 transition-transform cursor-pointer"
             >
-              Abdelrahman
+              {profile.shortName}
             </button>
           </div>
 
@@ -124,7 +118,7 @@ export function Navigation() {
             <div className="ml-10 flex items-baseline space-x-8">
               {navigationItems.map((item) => (
                 <button
-                  key={item.name}
+                  key={item.id}
                   onClick={() => scrollToSection(item.href)}
                   className={`text-gray-100 hover:text-indigo-300 transition-colors duration-200 font-medium cursor-pointer ${currentActiveSection === item.href.replace("#", "")
                     ? "text-indigo-400 font-bold underline underline-offset-8 decoration-indigo-400"
@@ -164,7 +158,7 @@ export function Navigation() {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900/80 backdrop-blur-sm rounded-lg mt-2 border border-gray-700">
               {navigationItems.map((item) => (
                 <button
-                  key={item.name}
+                  key={item.id}
                   onClick={() => scrollToSection(item.href)}
                   className={`block w-full text-left px-3 py-2 text-gray-100 hover:text-indigo-300 hover:bg-indigo-900/10 rounded-md transition-colors cursor-pointer ${currentActiveSection === item.href.replace("#", "")
                     ? "text-indigo-400 font-bold bg-indigo-900/10 underline underline-offset-8 decoration-indigo-400"

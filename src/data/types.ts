@@ -33,3 +33,10 @@ export interface Profile {
   competitiveProgrammingRank: string;
   primaryStack: string[];
 }
+
+export interface NavigationItem {
+  id: string;
+  name: string;
+  href: `#${string}`;
+  showInFooter: boolean;
+}

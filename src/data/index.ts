@@ -9,7 +9,15 @@ import { profile } from "./profile";
 export { profile };
 export type { Profile } from "./types";
 
-export const BASE_URL = "https://abdelrahmanahmedfouad.vercel.app";
+export {
+  BASE_URL,
+  site,
+  navigationItems,
+  footerNavigationItems,
+} from "./site";
+
+export { footerContent } from "./content";
+
 export const RESUME_URL = profile.resumeUrl;
 
 export const personalLinks = {
@@ -163,4 +171,14 @@ export const socialLinks = [
     href: personalLinks.linkedin,
     color: "hover:text-blue-600"
   }
+];
+
+export const footerSocialLinks = [
+  ...socialLinks,
+  {
+    name: "Email",
+    icon: Mail,
+    href: personalLinks.email,
+    color: "hover:text-indigo-400",
+  },
 ];
