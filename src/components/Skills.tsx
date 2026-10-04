@@ -2,6 +2,7 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { PortfolioIcon } from "@/components/PortfolioIcon";
 
 import {
   skillCategories,
@@ -25,14 +26,17 @@ export function Skills() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <Card
-              key={category.title}
+              key={category.id}
               className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-gray-700 animate-fade-in bg-gray-800 text-gray-100"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center group-hover:bg-indigo-900/30 transition-colors">
-                    <category.icon className="h-6 w-6 text-indigo-400" />
+                    <PortfolioIcon
+                      name={category.icon}
+                      className="h-6 w-6 text-indigo-400"
+                    />
                   </div>
                   <CardTitle className="text-lg font-semibold text-gray-100">
                     {category.title}

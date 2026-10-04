@@ -69,3 +69,38 @@ export interface Highlight {
   title: string;
   description: string;
 }
+
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  features: string[];
+  github: string;
+  demo?: string;
+  category: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  title: string;
+  icon: IconName;
+  skills: string[];
+  description: string;
+}
+
+export interface ContactItem {
+  id: string;
+  icon: IconName;
+  title: string;
+  details: string;
+  href?: string;
+}
+
+export interface SocialLink {
+  id: "github" | "linkedin" | "email";
+  name: string;
+  icon: IconName;
+  href: string;
+}

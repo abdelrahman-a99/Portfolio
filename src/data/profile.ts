@@ -75,3 +75,12 @@ export const formatList = (items: string[]) =>
   }).format(items);
 
 export const primaryStackSummary = formatList(profile.primaryStack);
+
+export const RESUME_URL = profile.resumeUrl;
+
+export const personalLinks = {
+  github: profile.links.github,
+  linkedin: profile.links.linkedin,
+  email: `mailto:${profile.email}`,
+  phone: `tel:${profile.phone.number}`,
+};

@@ -23,7 +23,7 @@ export function Projects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card
-              key={project.title}
+              key={project.id}
               className="group hover:shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden border-gray-700 animate-fade-in bg-gray-800 text-gray-100"
               style={{ animationDelay: `${index * 0.1}s` }}
             >

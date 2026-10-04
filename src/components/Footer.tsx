@@ -2,6 +2,8 @@
 
 import { Heart } from "lucide-react";
 
+import { PortfolioIcon } from "@/components/PortfolioIcon";
+
 import {
   footerContent,
   footerNavigationItems,
@@ -59,14 +61,14 @@ export function Footer() {
             <div className="flex space-x-4">
               {footerSocialLinks.map((social) => (
                 <a
-                  key={social.name}
+                  key={social.id}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-indigo-400"
                   aria-label={`Visit my ${social.name} profile`}
                 >
-                  <social.icon className="h-6 w-6" />
+                  <PortfolioIcon name={social.icon} className="h-6 w-6" />
                 </a>
               ))}
             </div>

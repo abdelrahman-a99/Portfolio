@@ -8,10 +8,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { PortfolioIcon } from "@/components/PortfolioIcon";
 
 import { contactInfo, socialLinks } from "@/data";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
+const socialHoverStyles = {
+  github: "hover:text-gray-900 dark:hover:text-white",
+  linkedin: "hover:text-blue-600",
+  email: "",
+};
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -143,9 +150,12 @@ export function Contact() {
             {/* Contact Details */}
             <div className="space-y-4">
               {contactInfo.map((contact) => (
-                <div key={contact.title} className="flex items-center space-x-4">
+                <div key={contact.id} className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center">
-                    <contact.icon className="h-6 w-6 text-indigo-400" />
+                    <PortfolioIcon
+                      name={contact.icon}
+                      className="h-6 w-6 text-indigo-400"
+                    />
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-100">{contact.title}</h4>
@@ -171,14 +181,14 @@ export function Contact() {
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <a
-                    key={social.name}
+                    key={social.id}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${social.color}`}
+                    className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${socialHoverStyles[social.id]}`}
                     aria-label={`Visit my ${social.name} profile`}
                   >
-                    <social.icon className="h-6 w-6" />
+                    <PortfolioIcon name={social.icon} className="h-6 w-6" />
                   </a>
                 ))}
               </div>
