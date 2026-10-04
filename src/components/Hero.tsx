@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
-import { RESUME_URL, personalLinks } from "@/data";
+import { RESUME_URL, personalLinks, profile } from "@/data";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -27,8 +27,8 @@ export function Hero() {
           <div className="relative inline-block">
             <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-[3px] border-indigo-400 shadow-lg animate-glow">
               <Image
-                src="/assets/profile-photo.jpg"
-                alt="Abdelrahman Ahmed"
+                src={profile.photo}
+                alt={profile.name}
                 width={128}
                 height={128}
                 className="w-full h-full object-cover"
@@ -44,12 +44,12 @@ export function Hero() {
                 Hi, I&apos;m
               </span>
               <span className="block text-indigo-400">
-                Abdelrahman Ahmed
+                {profile.name}
               </span>
             </h1>
 
             <p className="text-2xl sm:text-3xl lg:text-4xl text-gray-300 font-light">
-              Full Stack Developer
+              {profile.headline}
             </p>
 
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">

@@ -4,14 +4,19 @@ import {
   Mail, Phone, MapPin, Github, Linkedin
 } from "lucide-react";
 
+import { profile } from "./profile";
+
+export { profile };
+export type { Profile } from "./types";
+
 export const BASE_URL = "https://abdelrahmanahmedfouad.vercel.app";
-export const RESUME_URL = "https://drive.google.com/file/d/1DTtSsYwfSxdeF0jRNPmb5zUaX4QyT0el/view?usp=sharing";
+export const RESUME_URL = profile.resumeUrl;
 
 export const personalLinks = {
-  github: "https://github.com/abdelrahman-a99",
-  linkedin: "https://www.linkedin.com/in/abdelrahman-ahmed-fouad/",
-  email: "mailto:abdelrahmanahmedfouad9@gmail.com",
-  phone: "tel:+201200351201"
+  github: profile.links.github,
+  linkedin: profile.links.linkedin,
+  email: `mailto:${profile.email}`,
+  phone: `tel:${profile.phone.number}`,
 };
 
 export const highlights = [
@@ -128,21 +133,21 @@ export const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: "abdelrahmanahmedfouad9@gmail.com",
-    href: personalLinks.email
+    details: profile.email,
+    href: personalLinks.email,
   },
   {
     icon: Phone,
     title: "Phone",
-    details: "+20 120 035 1201",
-    href: personalLinks.phone
+    details: profile.phone.display,
+    href: personalLinks.phone,
   },
   {
     icon: MapPin,
     title: "Location",
-    details: "Giza, Egypt",
+    details: profile.location,
     // href: "#"
-  }
+  },
 ];
 
 export const socialLinks = [
