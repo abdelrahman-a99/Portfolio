@@ -46,3 +46,26 @@ export interface Statistic {
   value: string;
   label: string;
 }
+
+export type IconName =
+  | "code"
+  | "database"
+  | "globe"
+  | "brain"
+  | "wrench"
+  | "users"
+  | "graduation"
+  | "code2"
+  | "trophy"
+  | "mail"
+  | "phone"
+  | "map-pin"
+  | "github"
+  | "linkedin";
+
+export interface Highlight {
+  id: string;
+  icon: IconName;
+  title: string;
+  description: string;
+}

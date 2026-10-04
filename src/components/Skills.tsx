@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   skillCategories,
   focusStatistics,
+  skillsContent,
 } from "@/data";
 
 export function Skills() {
@@ -14,11 +15,10 @@ export function Skills() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
-            Skills & Expertise
+            {skillsContent.title}
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Technologies and practices I use to build full-stack applications, backend services,
-            AI-integrated platforms, and responsive user experiences
+            {skillsContent.description}
           </p>
         </div>
 
@@ -57,12 +57,10 @@ export function Skills() {
         <div className="mt-16 text-center animate-fade-in">
           <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-semibold text-gray-100 mb-4">
-              Current Focus
+              {skillsContent.focusTitle}
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              I&apos;m currently focused on strengthening full-stack engineering, backend architecture,
-              AI/RAG systems, LLM orchestration, and production-ready web applications. I&apos;m also
-              exploring computer vision, quantum computing, and game development.
+              {skillsContent.focusDescription}
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mt-8">

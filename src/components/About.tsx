@@ -3,10 +3,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 import {
-  highlights,
-  statistics,
+  aboutContent,
   aboutStatistics,
+  highlights,
 } from "@/data";
+
+import { PortfolioIcon } from "@/components/PortfolioIcon";
 
 export function About() {
   return (
@@ -14,11 +16,10 @@ export function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
-            About Me
+            {aboutContent.title}
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A passionate developer combining academic knowledge with practical experience
-            to create innovative solutions
+            {aboutContent.description}
           </p>
         </div>
 
@@ -26,24 +27,17 @@ export function About() {
           {/* Left side - Text content */}
           <div className="space-y-6 animate-slide-in-left">
             <div className="prose prose-lg max-w-none text-gray-400">
-              <p className="text-gray-400 leading-relaxed mb-4">
-                I&apos;m a senior Computer Science student at Nile University focused on software engineering,
-                full-stack development, and AI-powered systems. I build web applications using .NET, Django,
-                FastAPI, Next.js, React, TypeScript, and SQL/NoSQL databases.
-              </p>
-
-              <p className="text-gray-400 leading-relaxed mb-4">
-                My work includes backend APIs, responsive frontends, admin dashboards, authentication flows,
-                multi-step forms, clean architecture, and AI-integrated platforms. I&apos;ve contributed to projects
-                involving RAG-based assistants, RL-based recommendations, route-aware agents, and LLM orchestration.
-              </p>
-
-              <p className="text-gray-400 leading-relaxed">
-                Alongside development, I have mentored and taught{" "}
-                {statistics.studentsMentored.value} students through Nile University, GDG,
-                Microsoft Students Club, and iSchool. I also actively practice competitive programming as a
-                Codeforces Specialist.
-              </p>
+              {aboutContent.paragraphs.map((paragraph, index) => (
+                <p
+                  key={paragraph.id}
+                  className={
+                    "text-gray-400 leading-relaxed" +
+                    (index < aboutContent.paragraphs.length - 1 ? " mb-4" : "")
+                  }
+                >
+                  {paragraph.text}
+                </p>
+              ))}
             </div>
 
             {/* Stats */}
@@ -68,7 +62,7 @@ export function About() {
           <div className="grid gap-6">
             {highlights.map((highlight, index) => (
               <Card
-                key={highlight.title}
+                key={highlight.id}
                 className="hover:shadow-md transition-all duration-300 hover:scale-105 animate-fade-in border-gray-700 bg-gray-800 text-gray-100"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -76,7 +70,10 @@ export function About() {
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center">
-                        <highlight.icon className="h-6 w-6 text-indigo-400" />
+                        <PortfolioIcon
+                          name={highlight.icon}
+                          className="h-6 w-6 text-indigo-400"
+                        />
                       </div>
                     </div>
                     <div>

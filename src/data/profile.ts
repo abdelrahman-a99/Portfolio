@@ -45,3 +45,33 @@ export const profile: Profile = {
     "TypeScript",
   ],
 };
+
+const capitalize = (text: string) =>
+  text.charAt(0).toUpperCase() + text.slice(1);
+
+const studentPrefix = profile.education.studyYear
+  ? `${profile.education.studyYear} `
+  : "";
+
+export const academicSummary = {
+  short:
+    profile.education.status === "graduate"
+      ? `${profile.education.degreeShort} graduate`
+      : `${capitalize(studentPrefix)}${profile.education.degreeShort} student`,
+
+  full:
+    profile.education.status === "graduate"
+      ? `${profile.education.degree} graduate`
+      : `${studentPrefix}${profile.education.degree} student`,
+
+  institutionPreposition:
+    profile.education.status === "graduate" ? "from" : "at",
+};
+
+export const formatList = (items: string[]) =>
+  new Intl.ListFormat("en", {
+    style: "long",
+    type: "conjunction",
+  }).format(items);
+
+export const primaryStackSummary = formatList(profile.primaryStack);

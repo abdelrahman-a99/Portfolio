@@ -9,7 +9,7 @@ import {
   RESUME_URL,
   personalLinks,
   profile,
-  statistics,
+  heroContent,
 } from "@/data";
 
 export function Hero() {
@@ -47,7 +47,7 @@ export function Hero() {
           <div className="space-y-4 max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
               <span className="block text-gray-100">
-                Hi, I&apos;m
+                {heroContent.greeting}
               </span>
               <span className="block text-indigo-400">
                 {profile.name}
@@ -59,10 +59,7 @@ export function Hero() {
             </p>
 
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Senior CS student at Nile University building full-stack web applications and AI-integrated systems
-              with .NET, Django, FastAPI, Next.js, React, and TypeScript. Codeforces Specialist with experience
-              in RAG systems, LLM orchestration, and mentoring{" "}
-              {statistics.studentsMentored.value} students.
+              {heroContent.introduction}
             </p>
 
             {/* CTA Buttons */}
@@ -74,7 +71,7 @@ export function Hero() {
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Mail className="mr-2 h-5 w-5" />
-                Get In Touch
+                {heroContent.contactButton}
               </Button>
 
               <Button
@@ -89,7 +86,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                 >
                   <Download className="mr-2 h-5 w-5" />
-                  Download CV
+                  {heroContent.resumeButton}
                 </a>
               </Button>
             </div>

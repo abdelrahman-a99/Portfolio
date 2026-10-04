@@ -1,6 +1,5 @@
 import {
   Code, Database, Globe, Brain, Wrench, Users,
-  GraduationCap, Code2, Trophy,
   Mail, Phone, MapPin, Github, Linkedin
 } from "lucide-react";
 
@@ -24,7 +23,13 @@ export {
   footerNavigationItems,
 } from "./site";
 
-export { footerContent } from "./content";
+export {
+  heroContent,
+  aboutContent,
+  highlights,
+  skillsContent,
+  footerContent,
+} from "./content";
 
 export const RESUME_URL = profile.resumeUrl;
 
@@ -34,31 +39,6 @@ export const personalLinks = {
   email: `mailto:${profile.email}`,
   phone: `tel:${profile.phone.number}`,
 };
-
-export const highlights = [
-  {
-    icon: GraduationCap,
-    title: "Senior CS student",
-    description: "Senior Computer Science student at Nile University with a 3.6 GPA and a software engineering focus"
-  },
-  {
-    icon: Code2,
-    title: "Full Stack Developer",
-    description: "Builds web applications using .NET, Django, FastAPI, Next.js, React, TypeScript, and SQL/NoSQL databases"
-  },
-  {
-    icon: Brain,
-    title: "AI/RAG Systems",
-    description: "Works on AI-integrated platforms involving RAG, LLM orchestration, AI agents, and RL-based recommendations"
-  },
-  {
-    icon: Trophy,
-    title: "Mentorship & Problem Solving",
-    description:
-      `Mentored and taught ${statistics.studentsMentored.value} students; ` +
-      "Codeforces Specialist with strong algorithms and problem-solving background",
-  }
-];
 
 export const projects = [
   {
