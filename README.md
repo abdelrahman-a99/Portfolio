@@ -17,7 +17,7 @@ It showcases projects involving:
 
 ## Featured Projects
 
-### NUPAL — AI Academic & Career Advising Platform
+### NUPal — AI Academic & Career Advising Platform
 
 An AI academic and career advising platform for Nile University students combining academic policy Q&A, semester planning, and career guidance.
 
@@ -59,7 +59,7 @@ Tech: Next.js, React, TypeScript, Tailwind CSS, Django, PostgreSQL, REST APIs.
 
 ### Prerequisites
 
-- Node.js v18+
+- Node.js v20.9+
 - npm or yarn
 
 ### Installation
@@ -83,16 +83,21 @@ http://localhost:3000
 - `public/assets/`      — Project screenshots and profile images
 
 ## Customization
-Most static content is centralized in:
-`src/data/index.ts`
 
-Update this file to edit:
-- Projects
-- Skills
-- Contact information
-- Personal links
-- Resume URL
-- Highlight cards
+Most static content is centralized in `src/data/`.
+
+Update the relevant file to edit:
+
+- `profile.ts` — Personal details, academic status, contact information, personal links, and resume URL
+- `projects.ts` — Featured projects, screenshots, technologies, features, and links
+- `skills.ts` — Skill categories and descriptions
+- `statistics.ts` — Portfolio statistics
+- `content.ts` — Section copy, highlight cards, button labels, and form messages
+- `contact.ts` — Contact and social-link collections
+- `site.ts` — Site URL, navigation, language, and contact-form settings
+- `seo.ts` — SEO copy and structured data
+
+`src/data/index.ts` exports these files for use throughout the website.
 
 ## Contact
 - Portfolio: https://abdelrahmanahmedfouad.vercel.app/
