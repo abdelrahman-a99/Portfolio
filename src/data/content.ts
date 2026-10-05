@@ -4,7 +4,6 @@ import {
   primaryStackSummary,
   profile,
 } from "./profile";
-
 import { statistics } from "./statistics";
 import type { Highlight } from "./types";
 

@@ -13,9 +13,10 @@ import {
   Trophy,
   Users,
   Wrench,
+  type LucideIcon,
+  type LucideProps,
 } from "lucide-react";
 
-import type { LucideIcon, LucideProps } from "lucide-react";
 import type { IconName } from "@/data/types";
 
 const icons = {
@@ -39,10 +40,7 @@ type PortfolioIconProps = Omit<LucideProps, "name"> & {
   name: IconName;
 };
 
-export function PortfolioIcon({
-  name,
-  ...props
-}: PortfolioIconProps) {
+export function PortfolioIcon({ name, ...props }: PortfolioIconProps) {
   const Icon = icons[name];
 
   return <Icon {...props} />;

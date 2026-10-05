@@ -1,18 +1,16 @@
-'use client';
+"use client";
 
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { PortfolioIcon } from "@/components/PortfolioIcon";
-
-import {
-  skillCategories,
-  focusStatistics,
-  skillsContent,
-} from "@/data";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { focusStatistics, skillCategories, skillsContent } from "@/data";
 
 export function Skills() {
   return (
-    <section id="skills" className="min-h-screen py-20 bg-gray-900 text-gray-100 scroll-mt-24">
+    <section
+      id="skills"
+      className="min-h-screen py-20 bg-gray-900 text-gray-100 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
@@ -44,10 +42,16 @@ export function Skills() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-400 mb-4 text-sm">{category.description}</p>
+                <p className="text-gray-400 mb-4 text-sm">
+                  {category.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="text-xs border-indigo-900 text-indigo-400 bg-gray-900/60">
+                    <Badge
+                      key={skill}
+                      variant="outline"
+                      className="text-xs border-indigo-900 text-indigo-400 bg-gray-900/60"
+                    >
                       {skill}
                     </Badge>
                   ))}
@@ -73,9 +77,7 @@ export function Skills() {
                   <div className="text-2xl font-bold text-indigo-400 mb-2">
                     {statistic.value}
                   </div>
-                  <div className="text-sm text-gray-400">
-                    {statistic.label}
-                  </div>
+                  <div className="text-sm text-gray-400">{statistic.label}</div>
                 </div>
               ))}
             </div>

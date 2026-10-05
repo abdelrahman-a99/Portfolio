@@ -1,0 +1,31 @@
+{
+  "semi": true,
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "<BUILTIN_MODULES>",
+    "",
+    "^react$",
+    "^react/",
+    "^next$",
+    "^next/",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/components/",
+    "^@/hooks/",
+    "^@/lib/",
+    "^@/data(?:/.*)?$",
+    "^@/",
+    "",
+    "^[.]"
+  ],
+  "importOrderTypeScriptVersion": "5.5.0"
+}

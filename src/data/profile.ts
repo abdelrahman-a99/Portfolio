@@ -36,14 +36,7 @@ export const profile: Profile = {
 
   competitiveProgrammingRank: "Codeforces Specialist",
 
-  primaryStack: [
-    ".NET",
-    "Django",
-    "FastAPI",
-    "Next.js",
-    "React",
-    "TypeScript",
-  ],
+  primaryStack: [".NET", "Django", "FastAPI", "Next.js", "React", "TypeScript"],
 };
 
 const capitalize = (text: string) =>

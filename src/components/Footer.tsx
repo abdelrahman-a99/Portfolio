@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
 import { Heart } from "lucide-react";
 
 import { PortfolioIcon } from "@/components/PortfolioIcon";
-
 import {
+  accessibilityContent,
   footerContent,
   footerNavigationItems,
   footerSocialLinks,
   profile,
-  accessibilityContent
 } from "@/data";
 
 export function Footer() {
@@ -31,14 +30,14 @@ export function Footer() {
             >
               {profile.name}
             </button>
-            <p className="text-muted-foreground">
-              {footerContent.description}
-            </p>
+            <p className="text-muted-foreground">{footerContent.description}</p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-100">{footerContent.quickLinksTitle}</h3>
+            <h3 className="font-semibold text-gray-100">
+              {footerContent.quickLinksTitle}
+            </h3>
             <div className="space-y-2">
               {footerNavigationItems.map((link) => (
                 <button
@@ -58,7 +57,9 @@ export function Footer() {
 
           {/* Connect */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-100">{footerContent.connectTitle}</h3>
+            <h3 className="font-semibold text-gray-100">
+              {footerContent.connectTitle}
+            </h3>
             <div className="flex space-x-4">
               {footerSocialLinks.map((social) => (
                 <a
@@ -69,7 +70,7 @@ export function Footer() {
                   className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-indigo-400"
                   aria-label={accessibilityContent.socialProfileLabel.replace(
                     "{name}",
-                    social.name
+                    social.name,
                   )}
                 >
                   <PortfolioIcon name={social.icon} className="h-6 w-6" />

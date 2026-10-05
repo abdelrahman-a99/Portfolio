@@ -1,24 +1,22 @@
-'use client';
+"use client";
 
 import { useState } from "react";
-import { Send, Loader2 } from "lucide-react";
 
+import { Loader2, Send } from "lucide-react";
+
+import { PortfolioIcon } from "@/components/PortfolioIcon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
-import { PortfolioIcon } from "@/components/PortfolioIcon";
-
 import {
-  contactInfo,
-  socialLinks,
-  contactContent,
   accessibilityContent,
+  contactContent,
+  contactInfo,
   site,
+  socialLinks,
 } from "@/data";
 
 const socialHoverStyles = {
@@ -40,7 +38,7 @@ export function Contact() {
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -97,7 +95,7 @@ export function Contact() {
       const data = await res.json().catch(() => null);
 
       // Web3Forms response can be: { success: true, body: { message: "..."} }
-      const ok = res.ok && (data?.success === true);
+      const ok = res.ok && data?.success === true;
       const apiMessage = data?.body?.message ?? data?.message;
 
       if (!ok) {
@@ -119,8 +117,8 @@ export function Contact() {
         title: contactContent.messages.failureTitle,
         description:
           err instanceof Error && err.message
-          ? err.message
-          : contactContent.messages.failureDescription,
+            ? err.message
+            : contactContent.messages.failureDescription,
         variant: "destructive",
       });
     } finally {
@@ -129,7 +127,10 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen py-20 pb-32 bg-gray-900 text-gray-100 scroll-mt-24">
+    <section
+      id="contact"
+      className="min-h-screen py-20 pb-32 bg-gray-900 text-gray-100 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
@@ -163,7 +164,9 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-100">{contact.title}</h4>
+                    <h4 className="font-medium text-gray-100">
+                      {contact.title}
+                    </h4>
 
                     {contact.href ? (
                       <a
@@ -195,7 +198,7 @@ export function Contact() {
                     className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${socialHoverStyles[social.id]}`}
                     aria-label={accessibilityContent.socialProfileLabel.replace(
                       "{name}",
-                      social.name
+                      social.name,
                     )}
                   >
                     <PortfolioIcon name={social.icon} className="h-6 w-6" />

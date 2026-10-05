@@ -22,5 +22,5 @@ export const navigationItems: NavigationItem[] = [
 ];
 
 export const footerNavigationItems = navigationItems.filter(
-  (item) => item.showInFooter
+  (item) => item.showInFooter,
 );

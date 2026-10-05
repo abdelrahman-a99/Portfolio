@@ -1,19 +1,25 @@
-'use client';
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+"use client";
+
 import Image from "next/image";
 
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
-  projects,
-  personalLinks,
-  projectsContent,
-} from "@/data";
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { personalLinks, projects, projectsContent } from "@/data";
 
 export function Projects() {
   return (
-    <section id="projects" className="min-h-screen py-20 bg-gray-900 text-gray-100 scroll-mt-24">
+    <section
+      id="projects"
+      className="min-h-screen py-20 bg-gray-900 text-gray-100 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
@@ -41,7 +47,10 @@ export function Projects() {
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110 bg-gray-700"
                   />
                   <div className="absolute top-4 right-4">
-                    <Badge variant="secondary" className="bg-indigo-900/20 text-indigo-400 font-medium">
+                    <Badge
+                      variant="secondary"
+                      className="bg-indigo-900/20 text-indigo-400 font-medium"
+                    >
                       {project.category}
                     </Badge>
                   </div>
@@ -76,7 +85,10 @@ export function Projects() {
                     {projectsContent.featuresLabel}
                   </h4>
                   {project.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center text-xs text-gray-400">
+                    <div
+                      key={idx}
+                      className="flex items-center text-xs text-gray-400"
+                    >
                       <ArrowRight className="h-3 w-3 mr-2 text-indigo-400" />
                       {feature}
                     </div>
@@ -92,7 +104,11 @@ export function Projects() {
                     size="sm"
                     className="flex-1 border-indigo-900 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 cursor-pointer"
                   >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Github className="h-4 w-4 mr-2" />
                       {projectsContent.codeButton}
                     </a>
@@ -104,7 +120,11 @@ export function Projects() {
                       size="sm"
                       className="flex-1 bg-indigo-900 hover:bg-indigo-800 text-indigo-100 cursor-pointer"
                     >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         {projectsContent.demoButton}
                       </a>

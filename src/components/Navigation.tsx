@@ -1,20 +1,19 @@
-'use client';
+"use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
+
 import { Menu, X } from "lucide-react";
 
-import {
-  navigationItems,
-  profile,
-  accessibilityContent,
-} from "@/data";
+import { Button } from "@/components/ui/button";
+import { accessibilityContent, navigationItems, profile } from "@/data";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [manualActiveSection, setManualActiveSection] = useState<string | null>(null);
+  const [manualActiveSection, setManualActiveSection] = useState<string | null>(
+    null,
+  );
 
   const manualActiveSectionRef = useRef<string | null>(null);
   const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -35,7 +34,9 @@ export function Navigation() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = navigationItems.map((item) => item.href.replace("#", ""));
+    const sectionIds = navigationItems.map((item) =>
+      item.href.replace("#", ""),
+    );
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -63,7 +64,7 @@ export function Navigation() {
         root: null,
         rootMargin: "0px 0px -40% 0px",
         threshold: Array.from({ length: 101 }, (_, i) => i / 100),
-      }
+      },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -100,10 +101,11 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-gray-800/90 backdrop-blur-md border-b border-gray-700"
-        : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gray-800/90 backdrop-blur-md border-b border-gray-700"
+          : "bg-transparent"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -124,10 +126,11 @@ export function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-gray-100 hover:text-indigo-300 transition-colors duration-200 font-medium cursor-pointer ${currentActiveSection === item.href.replace("#", "")
-                    ? "text-indigo-400 font-bold underline underline-offset-8 decoration-indigo-400"
-                    : ""
-                    }`}
+                  className={`text-gray-100 hover:text-indigo-300 transition-colors duration-200 font-medium cursor-pointer ${
+                    currentActiveSection === item.href.replace("#", "")
+                      ? "text-indigo-400 font-bold underline underline-offset-8 decoration-indigo-400"
+                      : ""
+                  }`}
                 >
                   {item.name}
                 </button>
@@ -164,10 +167,11 @@ export function Navigation() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.href)}
-                  className={`block w-full text-left px-3 py-2 text-gray-100 hover:text-indigo-300 hover:bg-indigo-900/10 rounded-md transition-colors cursor-pointer ${currentActiveSection === item.href.replace("#", "")
-                    ? "text-indigo-400 font-bold bg-indigo-900/10 underline underline-offset-8 decoration-indigo-400"
-                    : ""
-                    }`}
+                  className={`block w-full text-left px-3 py-2 text-gray-100 hover:text-indigo-300 hover:bg-indigo-900/10 rounded-md transition-colors cursor-pointer ${
+                    currentActiveSection === item.href.replace("#", "")
+                      ? "text-indigo-400 font-bold bg-indigo-900/10 underline underline-offset-8 decoration-indigo-400"
+                      : ""
+                  }`}
                 >
                   {item.name}
                 </button>

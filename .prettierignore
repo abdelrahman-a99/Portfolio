@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+public/
+next-env.d.ts
+package-lock.json
+*.tsbuildinfo
+README.md

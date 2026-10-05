@@ -1,9 +1,4 @@
-import {
-  academicSummary,
-  primaryStackSummary,
-  profile,
-} from "./profile";
-
+import { academicSummary, primaryStackSummary, profile } from "./profile";
 import { BASE_URL } from "./site";
 
 const educationDescription =
@@ -65,10 +60,7 @@ export const personStructuredData = {
   name: profile.name,
   url: BASE_URL,
   image: seoContent.image.url,
-  sameAs: [
-    profile.links.linkedin,
-    profile.links.github,
-  ],
+  sameAs: [profile.links.linkedin, profile.links.github],
   jobTitle: profile.professionalTitle,
   description: seoContent.personDescription,
 };

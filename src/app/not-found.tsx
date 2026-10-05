@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button } from "../components/ui/button";
-
 import Link from "next/link";
+
 import { MoveLeft } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { notFoundContent } from "@/data";
 
 export default function NotFound() {
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
-      window.location.pathname
+      window.location.pathname,
     );
   }, []);
 
@@ -43,7 +43,10 @@ export default function NotFound() {
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-indigo-900/20 transition-all duration-300 hover:scale-105 hover:shadow-indigo-900/40"
             >
               <Link href="/" className="flex items-center gap-2">
-                <MoveLeft size={20} className="transition-transform group-hover:-translate-x-1" />
+                <MoveLeft
+                  size={20}
+                  className="transition-transform group-hover:-translate-x-1"
+                />
                 {notFoundContent.button}
               </Link>
             </Button>
@@ -52,4 +55,4 @@ export default function NotFound() {
       </div>
     </div>
   );
-} 
+}

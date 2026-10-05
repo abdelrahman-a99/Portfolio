@@ -1,9 +1,5 @@
 import { personalLinks, profile } from "./profile";
-
-import type {
-  ContactItem,
-  SocialLink,
-} from "./types";
+import type { ContactItem, SocialLink } from "./types";
 
 export const contactInfo: ContactItem[] = [
   {
@@ -50,7 +46,4 @@ export const emailLink: SocialLink = {
   href: personalLinks.email,
 };
 
-export const footerSocialLinks: SocialLink[] = [
-  ...socialLinks,
-  emailLink,
-];
+export const footerSocialLinks: SocialLink[] = [...socialLinks, emailLink];

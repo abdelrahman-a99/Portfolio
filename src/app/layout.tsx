@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
-import { Toaster } from "@/components/ui/toaster";
-import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@vercel/analytics/react";
 
+import { ScrollToTop } from "@/components/ScrollToTop";
+import { Toaster } from "@/components/ui/toaster";
 import {
   BASE_URL,
-  profile,
-  site,
-  seoContent,
   personStructuredData,
+  profile,
+  seoContent,
+  site,
   websiteStructuredData,
 } from "@/data";
 
@@ -68,7 +68,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personStructuredData).replace(
               /</g,
-              "\\u003c"
+              "\\u003c",
             ),
           }}
         />
@@ -78,7 +78,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteStructuredData).replace(
               /</g,
-              "\\u003c"
+              "\\u003c",
             ),
           }}
         />

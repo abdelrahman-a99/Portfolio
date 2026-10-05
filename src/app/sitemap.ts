@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+
 import { BASE_URL } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
