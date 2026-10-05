@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Mail } from "lucide-react";
 
+import { PortfolioIcon } from "@/components/PortfolioIcon";
 import { Button } from "@/components/ui/button";
-import { heroContent, personalLinks, profile, RESUME_URL } from "@/data";
+import {
+  accessibilityContent,
+  heroContent,
+  profile,
+  RESUME_URL,
+  socialLinksWithEmail,
+} from "@/data";
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -91,48 +98,31 @@ export function Hero() {
 
             {/* Social Links */}
             <div className="flex justify-center space-x-6 pt-4">
-              <a
-                href={personalLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
+              {socialLinksWithEmail.map((social) => (
                 <Button
+                  key={social.id}
+                  asChild
                   variant="ghost"
                   size="icon"
                   className="rounded-full hover:bg-indigo-900/10 hover:text-indigo-400 transition-all duration-300 hover:scale-110 text-gray-100 cursor-pointer"
                 >
-                  <Github className="h-6 w-6" />
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={
+                      social.id === "email"
+                        ? accessibilityContent.emailContact
+                        : accessibilityContent.socialProfileLabel.replace(
+                            "{name}",
+                            social.name,
+                          )
+                    }
+                  >
+                    <PortfolioIcon name={social.icon} className="h-6 w-6" />
+                  </a>
                 </Button>
-              </a>
-              <a
-                href={personalLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full hover:bg-indigo-900/10 hover:text-indigo-400 transition-all duration-300 hover:scale-110 text-gray-100 cursor-pointer"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </Button>
-              </a>
-              <a
-                href={personalLinks.email}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Gmail"
-              >
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full hover:bg-indigo-900/10 hover:text-indigo-400 transition-all duration-300 hover:scale-110 text-gray-100 cursor-pointer"
-                >
-                  <Mail className="h-6 w-6" />
-                </Button>
-              </a>
+              ))}
             </div>
           </div>
         </div>
@@ -145,6 +135,7 @@ export function Hero() {
           size="icon"
           onClick={scrollToAbout}
           className="rounded-full hover:bg-indigo-900/10 hover:text-indigo-400 transition-all duration-300 text-gray-100 cursor-pointer"
+          aria-label={accessibilityContent.scrollToAbout}
         >
           <ArrowDown className="h-6 w-6" />
         </Button>

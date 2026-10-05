@@ -46,4 +46,6 @@ export const emailLink: SocialLink = {
   href: personalLinks.email,
 };
 
-export const footerSocialLinks: SocialLink[] = [...socialLinks, emailLink];
+export const socialLinksWithEmail: SocialLink[] = [...socialLinks, emailLink];
+
+export const footerSocialLinks = socialLinksWithEmail;

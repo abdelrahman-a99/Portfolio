@@ -196,4 +196,6 @@ export const accessibilityContent = {
   toggleMobileMenu: "Toggle mobile menu",
   scrollToTop: "Scroll to top",
   socialProfileLabel: "Visit my {name} profile",
+  emailContact: "Send me an email",
+  scrollToAbout: "Scroll to About",
 };

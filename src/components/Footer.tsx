@@ -68,10 +68,14 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 transition-all duration-300 hover:scale-110 hover:text-indigo-400"
-                  aria-label={accessibilityContent.socialProfileLabel.replace(
-                    "{name}",
-                    social.name,
-                  )}
+                  aria-label={
+                    social.id === "email"
+                      ? accessibilityContent.emailContact
+                      : accessibilityContent.socialProfileLabel.replace(
+                          "{name}",
+                          social.name,
+                        )
+                  }
                 >
                   <PortfolioIcon name={social.icon} className="h-6 w-6" />
                 </a>
