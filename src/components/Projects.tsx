@@ -62,6 +62,15 @@ export function Projects() {
                   {project.title}
                 </h3>
 
+                {project.award && (
+                  <Badge
+                    variant="outline"
+                    className="mb-3 whitespace-normal border-indigo-900 text-indigo-400"
+                  >
+                    {project.award}
+                  </Badge>
+                )}
+
                 <p className="text-gray-400 text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>

@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with Next.js, React, TypeScript, an
 
 ## Overview
 
-This portfolio highlights my work as a senior Computer Science student at Nile University focused on software engineering, full-stack development, and AI-integrated systems.
+This portfolio highlights my work as a Computer Science graduate from Nile University focused on AI engineering, full-stack development, and AI-powered applications.
 
 It showcases projects involving:
 

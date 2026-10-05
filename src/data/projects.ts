@@ -1,11 +1,13 @@
+import { profile } from "./profile";
 import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
     id: "nupal",
-    title: "NUPal",
+    title: profile.graduationProject.name,
+    award: profile.graduationProject.award,
     description:
-      "An AI academic and career advising platform for Nile University students, combining academic policy Q&A, semester planning, and career guidance in one unified system.",
+      "An AI academic and career advising platform for Nile University students, combining academic policy Q&A, next-semester course recommendations, schedule matching, and career guidance in one unified system.",
     image: "/assets/NUPal-photo.png",
     technologies: [
       "Next.js",
@@ -18,22 +20,23 @@ export const projects: Project[] = [
       "RAG",
       "RL",
       "LLM Orchestration",
+      "Microservices",
     ],
     features: [
-      "RAG-based policy FAQ chatbot",
-      "RL-based next-semester course recommendations",
-      "Route-aware AI agent for request orchestration",
-      "Frontend, backend, and AI service integration",
+      "Policy Q&A with RAG",
+      "Next-semester course recommendations with Double Dueling DQN",
+      "Agent orchestration between policy retrieval and course recommendation",
+      "Schedule matching and career preparation",
     ],
     github: "https://github.com/abdelrahman-a99/NUPAL-Frontend",
     demo: "https://nupal.vercel.app/",
-    category: "Full Stack + AI",
+    category: "AI & Full-Stack",
   },
   {
     id: "bayyinah",
-    title: "bayyinah",
+    title: "بَيِّنَة",
     description:
-      "Arabic-first RAG Islamic assistant frontend grounded in Qur’an, tafsir, Sunnah, and curated narrative resources, designed for a clean RTL chat experience.",
+      "An Arabic-first RAG Islamic assistant grounded in Qur’an, tafsir, Sunnah, and curated narrative resources, with an RTL chat experience and source citations.",
     image: "/assets/Bayyinah-photo.png",
     technologies: [
       "Next.js",
@@ -47,14 +50,14 @@ export const projects: Project[] = [
       "RAG",
     ],
     features: [
-      "Arabic RTL chat interface",
+      "Retrieval-grounded answers from Islamic reference material",
+      "Arabic RTL chat interface with streaming responses and citations",
       "Supabase Google authentication",
-      "Conversation history with rename/delete actions",
-      "Streaming responses and citation-aware answer rendering",
+      "Conversation history with rename and delete actions",
     ],
     github: "https://github.com/abdelrahman-a99/Bayyinah-Front",
     demo: "https://bayyinah-alpha.vercel.app/",
-    category: "Frontend + RAG",
+    category: "RAG & Web Development",
   },
   {
     id: "nucpa",
@@ -70,6 +73,7 @@ export const projects: Project[] = [
       "Django",
       "PostgreSQL",
       "REST APIs",
+      "Supabase Auth",
     ],
     features: [
       "Team registration portal",

@@ -28,6 +28,13 @@ export interface Profile {
     degreeShort: string;
     institution: string;
     gpa: string;
+    gpaScale: string;
+    honors: string;
+  };
+
+  graduationProject: {
+    name: string;
+    award: string;
   };
 
   competitiveProgrammingRank: string;
@@ -73,6 +80,7 @@ export interface Highlight {
 export interface Project {
   id: string;
   title: string;
+  award?: string;
   description: string;
   image: string;
   technologies: string[];

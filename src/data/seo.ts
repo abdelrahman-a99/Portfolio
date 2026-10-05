@@ -1,4 +1,4 @@
-import { academicSummary, primaryStackSummary, profile } from "./profile";
+import { academicSummary, profile } from "./profile";
 import { BASE_URL } from "./site";
 
 const educationDescription =
@@ -11,36 +11,39 @@ export const seoContent = {
   title: `${profile.name} | ${profile.seoHeadline}`,
 
   description:
-    `Portfolio of ${profile.name}, ${educationDescription} building ` +
-    "full-stack web applications, backend services, and AI/RAG systems " +
-    `using ${primaryStackSummary}.`,
+    `${profile.name} is an ${profile.professionalTitle} and a ` +
+    `${academicSummary.full} ${academicSummary.institutionPreposition} ` +
+    `${profile.education.institution}. Explore his work in RAG, NLP, ` +
+    "AI agents, and full-stack applications.",
 
   keywords: [
     profile.name,
     "Portfolio",
     profile.headline,
+    "AI Engineer",
+    "Generative AI",
+    "RAG Systems",
+    "LLM Orchestration",
+    "NLP",
+    "AI Agents",
     "Software Engineer",
+    "Full-Stack Development",
     ".NET Developer",
     "Django Developer",
     "Next.js Developer",
     "React Developer",
     "Backend Developer",
     "Frontend Developer",
-    "AI Engineer",
-    "RAG Systems",
-    "LLM Orchestration",
     profile.education.institution,
     profile.competitiveProgrammingRank,
   ],
 
   siteName: `${profile.name} Portfolio`,
 
-  openGraphDescription:
-    "Portfolio showcasing full-stack, backend, frontend, and " +
-    `AI/RAG systems projects by ${profile.name}.`,
+  openGraphDescription: `RAG, NLP, AI agents, and full-stack projects by ${profile.name}.`,
 
   twitterDescription:
-    "Full-stack, backend, frontend, and AI/RAG systems portfolio.",
+    "AI engineering, RAG, NLP, AI agents, and full-stack development.",
 
   image: {
     url: new URL(profile.photo, BASE_URL).toString(),
@@ -50,8 +53,8 @@ export const seoContent = {
   },
 
   personDescription:
-    `${educationDescription} building full-stack applications, ` +
-    "backend services, and AI/RAG systems.",
+    `${profile.professionalTitle}. ${educationDescription} building ` +
+    "AI-powered applications, backend services, and web interfaces.",
 };
 
 export const personStructuredData = {

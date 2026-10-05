@@ -1,14 +1,16 @@
 import type { Profile } from "./types";
 
+const roleTitle = "AI Engineer & Full-Stack Developer";
+
 export const profile: Profile = {
   name: "Abdelrahman Ahmed",
   shortName: "Abdelrahman",
 
-  headline: "Full Stack Developer",
-  professionalTitle: "Full Stack Developer and AI/RAG Systems Developer",
-  seoHeadline: "Full Stack & AI/RAG Systems Developer",
+  headline: roleTitle,
+  professionalTitle: roleTitle,
+  seoHeadline: roleTitle,
 
-  photo: "/assets/profile-photo.jpg",
+  photo: "/assets/profile-graduation-2026.jpg",
   resumeUrl:
     "https://drive.google.com/file/d/1DTtSsYwfSxdeF0jRNPmb5zUaX4QyT0el/view?usp=sharing",
 
@@ -26,17 +28,32 @@ export const profile: Profile = {
   },
 
   education: {
-    status: "student",
-    studyYear: "senior",
+    status: "graduate",
+    studyYear: "",
     degree: "Computer Science",
     degreeShort: "CS",
     institution: "Nile University",
-    gpa: "3.6",
+    gpa: "3.62",
+    gpaScale: "4.00",
+    honors: "High Honors",
+  },
+
+  graduationProject: {
+    name: "NUPal",
+    award: "1st Place among ITCS Graduation Projects",
   },
 
   competitiveProgrammingRank: "Codeforces Specialist",
 
-  primaryStack: [".NET", "Django", "FastAPI", "Next.js", "React", "TypeScript"],
+  primaryStack: [
+    "Python",
+    "FastAPI",
+    ".NET",
+    "Django",
+    "Next.js",
+    "React",
+    "TypeScript",
+  ],
 };
 
 const capitalize = (text: string) =>
@@ -59,6 +76,13 @@ export const academicSummary = {
 
   institutionPreposition:
     profile.education.status === "graduate" ? "from" : "at",
+
+  title:
+    profile.education.status === "graduate"
+      ? `${profile.education.degree} Graduate`
+      : `${capitalize(studentPrefix)}${profile.education.degree} Student`,
+
+  gpaDisplay: `${profile.education.gpa}/${profile.education.gpaScale}`,
 };
 
 export const formatList = (items: string[]) =>
