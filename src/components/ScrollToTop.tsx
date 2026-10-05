@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+import { accessibilityContent } from "@/data";
+
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -39,7 +41,7 @@ export function ScrollToTop() {
         onClick={scrollToTop}
         size="icon"
         className="h-12 w-12 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-900/30 transition-all duration-300 hover:scale-110 hover:shadow-indigo-900/50 cursor-pointer"
-        aria-label="Scroll to top"
+        aria-label={accessibilityContent.scrollToTop}
       >
         <ArrowUp className="h-6 w-6" />
       </Button>

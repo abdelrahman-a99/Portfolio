@@ -2,17 +2,24 @@
 
 import { useState } from "react";
 import { Send, Loader2 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+
 import { useToast } from "@/hooks/use-toast";
+
 import { PortfolioIcon } from "@/components/PortfolioIcon";
 
-import { contactInfo, socialLinks } from "@/data";
-
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+import {
+  contactInfo,
+  socialLinks,
+  contactContent,
+  accessibilityContent,
+  site,
+} from "@/data";
 
 const socialHoverStyles = {
   github: "hover:text-gray-900 dark:hover:text-white",
@@ -49,9 +56,8 @@ export function Contact() {
 
     if (!accessKey) {
       toast({
-        title: "Contact form not configured",
-        description:
-          "Set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in Vercel Environment Variables (and .env.local for local dev).",
+        title: contactContent.messages.notConfiguredTitle,
+        description: contactContent.messages.notConfiguredDescription,
         variant: "destructive",
       });
       return;
@@ -60,7 +66,7 @@ export function Contact() {
     // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
-        title: "Please fill in all required fields",
+        title: contactContent.messages.requiredFields,
         variant: "destructive",
       });
       return;
@@ -74,12 +80,12 @@ export function Contact() {
         name: formData.name,
         email: formData.email,
         message: formData.message,
-        from_name: "Portfolio Website",
+        from_name: site.contactForm.senderName,
         replyto: formData.email,
         // optional reserved field (we already block via honeypot)
         botcheck: false,
       };
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const res = await fetch(site.contactForm.endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,12 +101,12 @@ export function Contact() {
       const apiMessage = data?.body?.message ?? data?.message;
 
       if (!ok) {
-        throw new Error(apiMessage || "Failed to send message");
+        throw new Error(apiMessage || contactContent.messages.failureFallback);
       }
 
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you. I’ll get back to you soon.",
+        title: contactContent.messages.successTitle,
+        description: contactContent.messages.successDescription,
       });
 
       setFormData({
@@ -108,12 +114,13 @@ export function Contact() {
         email: "",
         message: "",
       });
-    } catch (err: any) {
+    } catch (err: unknown) {
       toast({
-        title: "Could not send your message",
+        title: contactContent.messages.failureTitle,
         description:
-          err?.message ||
-          "Please try again in a minute (or contact me via email).",
+          err instanceof Error && err.message
+          ? err.message
+          : contactContent.messages.failureDescription,
         variant: "destructive",
       });
     } finally {
@@ -126,11 +133,10 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
-            Get In Touch
+            {contactContent.title}
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Ready to collaborate? Let&apos;s discuss your next project or any opportunities
-            you&apos;d like to explore together.
+            {contactContent.description}
           </p>
         </div>
 
@@ -139,11 +145,10 @@ export function Contact() {
           <div className="space-y-8 animate-slide-in-left">
             <div>
               <h3 className="text-2xl font-semibold text-gray-100 mb-2">
-                Let&apos;s Connect
+                {contactContent.connectTitle}
               </h3>
               <p className="text-gray-400 leading-relaxed mb-2">
-                I&apos;m always open to discussing new opportunities, interesting projects,
-                or just having a chat about technology and innovation. Feel free to reach out!
+                {contactContent.connectDescription}
               </p>
             </div>
 
@@ -177,7 +182,9 @@ export function Contact() {
 
             {/* Social Links */}
             <div className="pt-2">
-              <h4 className="font-medium text-gray-100 mb-4">Follow Me</h4>
+              <h4 className="font-medium text-gray-100 mb-4">
+                {contactContent.followTitle}
+              </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <a
@@ -186,7 +193,10 @@ export function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-12 h-12 bg-indigo-900/20 rounded-lg flex items-center justify-center text-indigo-400 transition-all duration-300 hover:scale-110 ${socialHoverStyles[social.id]}`}
-                    aria-label={`Visit my ${social.name} profile`}
+                    aria-label={accessibilityContent.socialProfileLabel.replace(
+                      "{name}",
+                      social.name
+                    )}
                   >
                     <PortfolioIcon name={social.icon} className="h-6 w-6" />
                   </a>
@@ -199,7 +209,7 @@ export function Contact() {
           <Card className="animate-fade-in border-gray-700 bg-gray-800 text-gray-100">
             <CardHeader>
               <CardTitle className="text-2xl font-semibold text-gray-100 mt-2">
-                Send a Message
+                {contactContent.formTitle}
               </CardTitle>
             </CardHeader>
 
@@ -216,21 +226,25 @@ export function Contact() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name *</Label>
+                    <Label htmlFor="name">
+                      {contactContent.form.nameLabel}
+                    </Label>
                     <div className="mb-2"></div>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Your full name"
+                      placeholder={contactContent.form.namePlaceholder}
                       required
                       autoComplete="name"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
+                    <Label htmlFor="email">
+                      {contactContent.form.emailLabel}
+                    </Label>
                     <div className="mb-2"></div>
                     <Input
                       id="email"
@@ -238,7 +252,7 @@ export function Contact() {
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="your.email@example.com"
+                      placeholder={contactContent.form.emailPlaceholder}
                       required
                       autoComplete="email"
                     />
@@ -246,14 +260,16 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
+                  <Label htmlFor="message">
+                    {contactContent.form.messageLabel}
+                  </Label>
                   <div className="mb-2"></div>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Tell me about your project or opportunity..."
+                    placeholder={contactContent.form.messagePlaceholder}
                     rows={6}
                     required
                     className="resize-none"
@@ -268,12 +284,12 @@ export function Contact() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Sending...
+                      {contactContent.form.submittingLabel}
                     </>
                   ) : (
                     <>
                       <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      {contactContent.form.submitLabel}
                     </>
                   )}
                 </Button>

@@ -2,6 +2,11 @@ import type { NavigationItem } from "./types";
 
 export const site = {
   baseUrl: "https://abdelrahmanahmedfouad.vercel.app",
+
+  contactForm: {
+    endpoint: "https://api.web3forms.com/submit",
+    senderName: "Portfolio Website",
+  },
 };
 
 export const BASE_URL = site.baseUrl;

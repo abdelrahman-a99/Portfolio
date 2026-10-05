@@ -6,6 +6,8 @@ import { Button } from "../components/ui/button";
 import Link from "next/link";
 import { MoveLeft } from "lucide-react";
 
+import { notFoundContent } from "@/data";
+
 export default function NotFound() {
   useEffect(() => {
     console.error(
@@ -27,12 +29,11 @@ export default function NotFound() {
 
         <div className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-100">
-            Page Not Found
+            {notFoundContent.title}
           </h2>
 
           <p className="mx-auto max-w-lg text-lg text-gray-400 leading-relaxed">
-            Oops! It seems you&apos;ve ventured into uncharted digital territory.
-            The page you&apos;re looking for might have been moved or doesn&apos;t exist.
+            {notFoundContent.description}
           </p>
 
           <div className="flex justify-center pt-4">
@@ -43,7 +44,7 @@ export default function NotFound() {
             >
               <Link href="/" className="flex items-center gap-2">
                 <MoveLeft size={20} className="transition-transform group-hover:-translate-x-1" />
-                Return Home
+                {notFoundContent.button}
               </Link>
             </Button>
           </div>

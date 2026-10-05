@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-import { navigationItems, profile } from "@/data";
+import {
+  navigationItems,
+  profile,
+  accessibilityContent,
+} from "@/data";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -139,7 +143,7 @@ export function Navigation() {
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="h-10 w-10 cursor-pointer hover:bg-indigo-900/20 transition-colors"
-                aria-label="Toggle mobile menu"
+                aria-label={accessibilityContent.toggleMobileMenu}
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (

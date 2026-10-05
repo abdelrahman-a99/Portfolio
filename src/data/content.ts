@@ -127,3 +127,74 @@ export const footerContent = {
   builtWith: "Built with",
   technologyCredit: "using Next.js & TypeScript",
 };
+
+export const projectsContent = {
+  title: "Featured Projects",
+  description:
+    "A showcase of my strongest full-stack, AI/RAG, and software engineering projects",
+
+  featuresLabel: "Key Features:",
+  codeButton: "Code",
+  demoButton: "Demo",
+  allProjectsButton: "View All Projects on GitHub",
+};
+
+export const contactContent = {
+  title: "Get In Touch",
+
+  description:
+    "Ready to collaborate? Let's discuss your next project or any " +
+    "opportunities you'd like to explore together.",
+
+  connectTitle: "Let's Connect",
+
+  connectDescription:
+    "I'm always open to discussing new opportunities, interesting projects, " +
+    "or just having a chat about technology and innovation. Feel free to reach out!",
+
+  followTitle: "Follow Me",
+  formTitle: "Send a Message",
+
+  form: {
+    nameLabel: "Name *",
+    namePlaceholder: "Your full name",
+
+    emailLabel: "Email *",
+    emailPlaceholder: "your.email@example.com",
+
+    messageLabel: "Message *",
+    messagePlaceholder: "Tell me about your project or opportunity...",
+
+    submitLabel: "Send Message",
+    submittingLabel: "Sending...",
+  },
+
+  messages: {
+    notConfiguredTitle: "Contact form unavailable",
+    notConfiguredDescription: "Please contact me using the email link instead.",
+
+    requiredFields: "Please fill in all required fields",
+
+    successTitle: "Message sent successfully!",
+    successDescription: "Thank you. I’ll get back to you soon.",
+
+    failureTitle: "Could not send your message",
+    failureDescription:
+      "Please try again in a minute (or contact me via email).",
+    failureFallback: "Failed to send message",
+  },
+};
+
+export const notFoundContent = {
+  title: "Page Not Found",
+  description:
+    "Oops! It seems you've ventured into uncharted digital territory. " +
+    "The page you're looking for might have been moved or doesn't exist.",
+  button: "Return Home",
+};
+
+export const accessibilityContent = {
+  toggleMobileMenu: "Toggle mobile menu",
+  scrollToTop: "Scroll to top",
+  socialProfileLabel: "Visit my {name} profile",
+};

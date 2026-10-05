@@ -5,7 +5,11 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
-import { projects, personalLinks } from "@/data";
+import {
+  projects,
+  personalLinks,
+  projectsContent,
+} from "@/data";
 
 export function Projects() {
   return (
@@ -13,10 +17,10 @@ export function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-100 mb-4">
-            Featured Projects
+            {projectsContent.title}
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            A showcase of my strongest full-stack, AI/RAG, and software engineering projects
+            {projectsContent.description}
           </p>
         </div>
 
@@ -68,7 +72,9 @@ export function Projects() {
 
                 {/* Key Features */}
                 <div className="space-y-1">
-                  <h4 className="text-sm font-medium text-gray-100 mb-2">Key Features:</h4>
+                  <h4 className="text-sm font-medium text-gray-100 mb-2">
+                    {projectsContent.featuresLabel}
+                  </h4>
                   {project.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center text-xs text-gray-400">
                       <ArrowRight className="h-3 w-3 mr-2 text-indigo-400" />
@@ -88,7 +94,7 @@ export function Projects() {
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />
-                      Code
+                      {projectsContent.codeButton}
                     </a>
                   </Button>
 
@@ -100,7 +106,7 @@ export function Projects() {
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
+                        {projectsContent.demoButton}
                       </a>
                     </Button>
                   )}
@@ -123,7 +129,7 @@ export function Projects() {
               className="border-2 border-indigo-900 text-indigo-400 hover:bg-indigo-900 hover:text-indigo-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
             >
               <Github className="mr-2 h-5 w-5" />
-              View All Projects on GitHub
+              {projectsContent.allProjectsButton}
             </Button>
           </a>
         </div>
