@@ -2,6 +2,8 @@ import type { NavigationItem } from "./types";
 
 export const site = {
   baseUrl: "https://abdelrahmanahmedfouad.vercel.app",
+  language: "en",
+  locale: "en_US",
 
   contactForm: {
     endpoint: "https://api.web3forms.com/submit",

@@ -6,3 +6,4 @@ export * from "./content";
 export * from "./projects";
 export * from "./skills";
 export * from "./contact";
+export * from "./seo";
